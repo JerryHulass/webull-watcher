@@ -1,0 +1,2830 @@
+8683729152 2026-08-25 12:13:16,767 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:13:16Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "d45f7518-cd39-522a-91cd-f8543a38fa72",
+    "x-signature": "FJ84HmCIuLETnM4t2ZqpeB82dBzOAAjZ7BzQoeHN1KU=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "24cbe542c3764673bd2f2523bdd6b27c",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"24cbe542c3764673bd2f2523bdd6b27c\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 0ee44d68-4d2f-42fc-b99f-dfe6d951b9a7
+8683729152 2026-08-25 12:13:16,769 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "0ee44d68-4d2f-42fc-b99f-dfe6d951b9a7"
+}
+8683729152 2026-08-25 12:13:16,900 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:13:16Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "89d967f7-cbdc-598c-b2dd-c67d98c560f6",
+    "x-signature": "VyfNOsSATrUb7dPYyt9hVYKmJso8vPbHaJYIgLc/R3w=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "0483267873f3439caad82b2cd28181a5",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"0483267873f3439caad82b2cd28181a5\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 1500364c-2e9b-4eb7-b799-2db44e551f6b
+8683729152 2026-08-25 12:13:16,901 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "1500364c-2e9b-4eb7-b799-2db44e551f6b"
+}
+8683729152 2026-08-25 12:13:47,541 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:13:47Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "85349de0-f4d5-5b10-8ece-c06fd0605c49",
+    "x-signature": "HCOWYss3/h24+lUgisICe2R7/Hv23R8K3UnYVelAzlY=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "c075cc6b354c431992fe0b47580e634a",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"c075cc6b354c431992fe0b47580e634a\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 44eb9341-13a5-41b8-9079-d36a95c8c697
+8683729152 2026-08-25 12:13:47,543 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "44eb9341-13a5-41b8-9079-d36a95c8c697"
+}
+8683729152 2026-08-25 12:13:47,684 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:13:47Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "4d4ab687-1caa-543a-9350-86ec5589c086",
+    "x-signature": "mNPMnX5sFMZM1aJ1d/S5XOXzPXd7xp/PKpNs/yx5MPg=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "2f30437380354598bcfb182539aeef9e",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"2f30437380354598bcfb182539aeef9e\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 3b9ff2f2-546a-4a30-b062-e9a7aa5d4ed9
+8683729152 2026-08-25 12:13:47,686 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "3b9ff2f2-546a-4a30-b062-e9a7aa5d4ed9"
+}
+8683729152 2026-08-25 12:14:16,942 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 12:14:17,299 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:14:17Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "5ba4caac-6d6f-50df-96ca-50b7acbb5065",
+    "x-signature": "tqBxwQVLgsloLHhOhpFCNLPZIcvWchuLOan+fLqRP/o=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "0aa0e761f3374f2db5d01c82a31a272a",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"0aa0e761f3374f2db5d01c82a31a272a\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: eb5d7528-85a4-4b36-bd1e-3eb1b8f7331a
+8683729152 2026-08-25 12:14:17,301 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "eb5d7528-85a4-4b36-bd1e-3eb1b8f7331a"
+}
+8683729152 2026-08-25 12:14:17,393 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:14:17Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "dad6fa1d-d33c-531b-9dee-7d479de9a8e1",
+    "x-signature": "ASmfwOGK1kU8iSBOxfEf8W3RojkPntBf5C2Yn8Fu690=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "548961bad27e4ccab28664f2dbfb566e",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"548961bad27e4ccab28664f2dbfb566e\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 048ad21b-e366-4279-9243-af03b71b73e9
+8683729152 2026-08-25 12:14:17,394 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "048ad21b-e366-4279-9243-af03b71b73e9"
+}
+8683729152 2026-08-25 12:14:32,628 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:14:32Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "b13b471a-65e0-59d6-9fec-6a2da5a892f5",
+    "x-signature": "5axDaFW3PhmqgW/IKIWV/sUkXwZ/DdzpVSPjyFQlua0=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "91e7d52bccdd48cc87eb74803b0beda8",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"91e7d52bccdd48cc87eb74803b0beda8\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 34e95868-d4b0-4ece-a2b8-8cf67a5ab058
+8683729152 2026-08-25 12:14:32,629 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "34e95868-d4b0-4ece-a2b8-8cf67a5ab058"
+}
+8683729152 2026-08-25 12:14:32,730 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:14:32Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "675c3f62-d873-5d36-82c2-52de0301dc17",
+    "x-signature": "r7hlrdNUP0Rw6lfLQjxoRjk8eX7+4QJvBU3LlBIV9e0=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "89fc365e1a344fba90221de958e8052b",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"89fc365e1a344fba90221de958e8052b\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: e0259c95-805f-421b-9bdd-80be773d50ed
+8683729152 2026-08-25 12:14:32,731 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "e0259c95-805f-421b-9bdd-80be773d50ed"
+}
+8683729152 2026-08-25 12:14:47,998 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:14:47Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "8e39796e-bd3d-50f0-9d5a-31e8d841c27d",
+    "x-signature": "UKaTOZ9Q3VU88RAQXHwU9Qs7yjiA0kOsh73SxuwGing=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "c2acfd81482d4f0a83c043bd564594c2",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"c2acfd81482d4f0a83c043bd564594c2\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 70cbcf40-755e-49e5-b024-c2fd95204531
+8683729152 2026-08-25 12:14:47,999 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "70cbcf40-755e-49e5-b024-c2fd95204531"
+}
+8683729152 2026-08-25 12:14:48,189 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:14:48Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "8af4164c-5f94-57f9-b57b-ebe90634bdd1",
+    "x-signature": "8NriSaqMdE5NgyXeluQysQuiMEAy9iN43C1MJarH/b0=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "a91f010ebe2849d493a9cd37f2c520b4",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"a91f010ebe2849d493a9cd37f2c520b4\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: e2844ada-f516-4f6c-a2bf-658dc28e3d45
+8683729152 2026-08-25 12:14:48,190 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "e2844ada-f516-4f6c-a2bf-658dc28e3d45"
+}
+8683729152 2026-08-25 12:15:03,436 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:15:03Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "114ef582-de29-52e9-90e1-144f09ac3792",
+    "x-signature": "1dPr5x1MWcqDLc5F2M5EmZtkA1RqozM/5i9YvR4q1sE=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "b3720975a5294b7b8e6d3d942d113095",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"b3720975a5294b7b8e6d3d942d113095\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: ba2f7571-eaa6-4c71-ad88-276733e7ed6d
+8683729152 2026-08-25 12:15:03,437 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "ba2f7571-eaa6-4c71-ad88-276733e7ed6d"
+}
+8683729152 2026-08-25 12:15:03,535 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:15:03Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "961dddd0-22bf-5042-853f-6756d2def286",
+    "x-signature": "6TOihOFYREoAiPyjJUowSxHbUsZYDqJ4L3tzTRv7g+s=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "919954bbbac240299ae862320a45b1ce",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"919954bbbac240299ae862320a45b1ce\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 86a9b22e-5b7b-48d6-868c-898f70318dfb
+8683729152 2026-08-25 12:15:03,536 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "86a9b22e-5b7b-48d6-868c-898f70318dfb"
+}
+8683729152 2026-08-25 12:15:18,799 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:15:18Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "77b7565b-58bd-5424-a1a5-9ff8eb0ddeef",
+    "x-signature": "xesMuIVy3OJu2+EIR8GJzxT6oViBBHqJgkoKRjwrRwM=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "c924b425ab21412abed22638ac2e3f45",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"c924b425ab21412abed22638ac2e3f45\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 33e757fe-46c4-4d0e-8e67-704429d52e7e
+8683729152 2026-08-25 12:15:18,801 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "33e757fe-46c4-4d0e-8e67-704429d52e7e"
+}
+8683729152 2026-08-25 12:15:18,911 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:15:18Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "47a2350e-3c41-555f-b6ba-ae055dee1725",
+    "x-signature": "2+TTHaitgrkiIXdvetflZEyuzOeZcjU9Yhu8tcTOFF4=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "aa6e808a94194a55b61f54f945328459",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"aa6e808a94194a55b61f54f945328459\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: f9a650d8-e4fd-42a1-9fcd-02536aa8e51c
+8683729152 2026-08-25 12:15:18,913 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "f9a650d8-e4fd-42a1-9fcd-02536aa8e51c"
+}
+8683729152 2026-08-25 12:15:34,257 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:15:34Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "89cdcbcb-38f2-5f9b-9742-7a991e74bae5",
+    "x-signature": "1LseMeVcettk3sryQy09EISQY0wdqzkvZnoBoWIo2yk=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "3811fc4ba5bd4a749b3273e59e01a9d5",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"3811fc4ba5bd4a749b3273e59e01a9d5\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 44750db5-55b3-4c96-9747-f8adc5eea5bc
+8683729152 2026-08-25 12:15:34,259 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "44750db5-55b3-4c96-9747-f8adc5eea5bc"
+}
+8683729152 2026-08-25 12:15:34,373 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:15:34Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "1391d4f7-b1c4-56cc-b538-9eae025cca3a",
+    "x-signature": "O+WmwNbE6hMk09L+5yOmsi5aaqBcuR62QIib2s84YAI=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "c1bd62f4670a43da9ff8ca7fceacb5d7",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"c1bd62f4670a43da9ff8ca7fceacb5d7\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 1532ca94-bb5d-4f46-957e-8701282b6fee
+8683729152 2026-08-25 12:15:34,375 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "1532ca94-bb5d-4f46-957e-8701282b6fee"
+}
+8683729152 2026-08-25 12:15:49,748 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:15:49Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "a6d3d997-3a73-59cb-9707-5ccf96edf9e8",
+    "x-signature": "UQAeUK/eArwD6dYMci/JoIpqTiTnTh8gkiIULOZBP98=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "e5f896e08cbe4d0899c985d5a1430183",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"e5f896e08cbe4d0899c985d5a1430183\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 8ed6e546-073b-45f8-a21f-d429a73502af
+8683729152 2026-08-25 12:15:49,750 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "8ed6e546-073b-45f8-a21f-d429a73502af"
+}
+8683729152 2026-08-25 12:15:49,877 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:15:49Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "89b842aa-3a64-59ee-a3b8-22a8b8f324ac",
+    "x-signature": "e/gX9b597jM96GZEZANQV0l5/tp0iWgW5XjXe0hAHoE=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "a2beec4fc60449f791e3b2aa05fc2fc5",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"a2beec4fc60449f791e3b2aa05fc2fc5\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 0f16df44-af0d-47d7-adef-6356ff6fb0f2
+8683729152 2026-08-25 12:15:49,878 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "0f16df44-af0d-47d7-adef-6356ff6fb0f2"
+}
+8683729152 2026-08-25 12:16:05,293 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:16:05Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "1aa1b719-3925-5ce2-a55c-9fa5711a1f67",
+    "x-signature": "AFFgbMND81/hejKXz0pd290MLU/p9FzfZcyvmieIQtQ=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "58881cc6387445cd85c7c412175edbdb",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"58881cc6387445cd85c7c412175edbdb\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 6cfe54f5-cd97-43ff-b9d6-33034d60951e
+8683729152 2026-08-25 12:16:05,295 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "6cfe54f5-cd97-43ff-b9d6-33034d60951e"
+}
+8683729152 2026-08-25 12:16:05,431 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:16:05Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "88d21394-63b1-5d66-82b3-c747e057eee7",
+    "x-signature": "AMkNdyhP6N/kNphABpoD5e9fSMGKHckFTRhB4gqCkec=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "6c40c65020c840e28dd1b31fa78e618f",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"6c40c65020c840e28dd1b31fa78e618f\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: a1643f01-2be4-430b-bc4c-d722c83273e4
+8683729152 2026-08-25 12:16:05,432 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "a1643f01-2be4-430b-bc4c-d722c83273e4"
+}
+8683729152 2026-08-25 12:16:20,793 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:16:20Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "24f7fd76-01b5-560a-8fce-086a79833284",
+    "x-signature": "4za1ocTbU3Wkan8y9bDWCY14RhFxZXuc1aiVkTtjels=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "ffd70df6e8a14eb2bb20667c2988025c",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"ffd70df6e8a14eb2bb20667c2988025c\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 636228e7-74f0-47b9-b253-ec752ecf202c
+8683729152 2026-08-25 12:16:20,794 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "636228e7-74f0-47b9-b253-ec752ecf202c"
+}
+8683729152 2026-08-25 12:16:21,025 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:16:20Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "0a257d66-88fc-5e16-b4e0-cd6d10a37beb",
+    "x-signature": "RWEKp3fMXuourkYzENz43lds1ohD0gnBolyB39BYN8U=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "f99a48981eab4a038af81e3278231fd3",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"f99a48981eab4a038af81e3278231fd3\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 1833bd5e-368d-46fa-8d14-6a2982516b5e
+8683729152 2026-08-25 12:16:21,026 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "1833bd5e-368d-46fa-8d14-6a2982516b5e"
+}
+8683729152 2026-08-25 12:16:36,398 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:16:36Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "01d6b302-9220-5794-b5a5-552872179b2a",
+    "x-signature": "GDZPc3MziSmrydBaHPtIALAAYXSWbF1qFwZS8cAlcZc=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "f4fd7244399a4b5abaa3ad39822ca2a8",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"f4fd7244399a4b5abaa3ad39822ca2a8\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 84cf8431-a64c-4f89-bc17-7f1576f63d53
+8683729152 2026-08-25 12:16:36,399 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "84cf8431-a64c-4f89-bc17-7f1576f63d53"
+}
+8683729152 2026-08-25 12:16:36,524 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:16:36Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "2cd13b24-3841-57c0-a4c6-92094b673846",
+    "x-signature": "z4Py7Nm7zOh6rUC4YfjrnLIfq9U2nHRdYOviDpRA04g=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "d9e2c212c5594d9c90fb6ab5d9e9b6cf",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"d9e2c212c5594d9c90fb6ab5d9e9b6cf\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: c7bcf320-79c5-4fd9-9a4e-43a340c04336
+8683729152 2026-08-25 12:16:36,526 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "c7bcf320-79c5-4fd9-9a4e-43a340c04336"
+}
+8683729152 2026-08-25 12:16:51,943 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:16:51Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "7fe5530e-8612-5b62-92b7-699f1ab4306a",
+    "x-signature": "TvdmbbdcW3+XF8HjWWfBGTv3Vy/I64QdJvMp6oJ1E5I=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "514e6d25a57f4bc9bcba58c23c691709",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"514e6d25a57f4bc9bcba58c23c691709\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: ab312823-83bd-4a4b-9006-c815438d3c72
+8683729152 2026-08-25 12:16:51,945 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "ab312823-83bd-4a4b-9006-c815438d3c72"
+}
+8683729152 2026-08-25 12:16:52,092 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:16:51Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "438ce9f2-2769-5e98-b79a-ffd99e6e93fb",
+    "x-signature": "BbjU2+Q6Aj8VctHURhfDW2ID6+jUDKmIUgjC7jKctbQ=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "c7ce4ff4658f4d5bae5239e1a602be30",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"c7ce4ff4658f4d5bae5239e1a602be30\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 04d1f829-52d9-4423-8d0e-89835d64b86f
+8683729152 2026-08-25 12:16:52,093 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "04d1f829-52d9-4423-8d0e-89835d64b86f"
+}
+8683729152 2026-08-25 12:17:07,400 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:17:07Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "0ef4027d-b0d0-526b-8611-db37e6ba21f1",
+    "x-signature": "/j/2rRs1kfI3OYcHXATz3/5+IYHIm3VeFw/CuvXEub0=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "2a1a8dbd2f154f5698b669c5630f3920",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"2a1a8dbd2f154f5698b669c5630f3920\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: fa711f58-4da5-424c-8290-8bd5884dfad3
+8683729152 2026-08-25 12:17:07,401 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "fa711f58-4da5-424c-8290-8bd5884dfad3"
+}
+8683729152 2026-08-25 12:17:07,575 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:17:07Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "24e4bfeb-c124-59e2-9a9d-929b857c8e3b",
+    "x-signature": "zYvtaldaGljEKtVLpkMyMEK1nTAvVF6B1cXq5kmiP+c=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "ffbb1f4406b048d3a7a966134c66bfe4",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"ffbb1f4406b048d3a7a966134c66bfe4\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: f8a48ada-82d8-4754-a940-bba0e1941cb0
+8683729152 2026-08-25 12:17:07,576 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "f8a48ada-82d8-4754-a940-bba0e1941cb0"
+}
+8683729152 2026-08-25 12:17:22,896 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:17:22Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "f0ed0b1a-b3d7-5a78-8d1a-39a669c1df5c",
+    "x-signature": "BPwVmkZM85HMuFAbqokF7fXhpnRfanAwWarRs9NVNL0=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "126df09c994346b1b2aac4c3570f3da4",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"126df09c994346b1b2aac4c3570f3da4\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: c72faeb1-5442-4f38-ba96-3fb01e2ec346
+8683729152 2026-08-25 12:17:22,898 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "c72faeb1-5442-4f38-ba96-3fb01e2ec346"
+}
+8683729152 2026-08-25 12:17:23,003 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:17:22Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "951612e1-451e-5454-9ff4-1e8619505e0f",
+    "x-signature": "8Mzyk942+AOHAeIiU0u6lndi6jypiWNdl0EpH9e+cW4=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "715f950f86cf47a0803ff01e8f3fcc81",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"715f950f86cf47a0803ff01e8f3fcc81\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: f347eab3-388a-4fcb-a17d-38c1e7c9ad1e
+8683729152 2026-08-25 12:17:23,004 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "f347eab3-388a-4fcb-a17d-38c1e7c9ad1e"
+}
+8683729152 2026-08-25 12:17:38,297 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:17:38Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "f6c96df7-bff0-5c51-b2ce-b9ddfc0ea28f",
+    "x-signature": "4QiHJHfBQ4bF1el9XJ60Aln6T1YA52rC1gi3FH1WT2g=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "b29fd711989b49298c8629c58e869464",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"b29fd711989b49298c8629c58e869464\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 4c159f03-2d7d-4171-b4b7-80696bbaae4a
+8683729152 2026-08-25 12:17:38,299 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "4c159f03-2d7d-4171-b4b7-80696bbaae4a"
+}
+8683729152 2026-08-25 12:17:38,404 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:17:38Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "aeb7b31e-7d14-5e88-810f-34c10dc351a4",
+    "x-signature": "S20vAmLXoN5Q1FiTn32yDEogoZaqhYujUa/KRdQN7Mc=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "4b9bec7431574522a1b86fcb6d2f64ed",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"4b9bec7431574522a1b86fcb6d2f64ed\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 075ab12d-9ceb-4aa0-9d33-aed0581b2743
+8683729152 2026-08-25 12:17:38,406 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "075ab12d-9ceb-4aa0-9d33-aed0581b2743"
+}
+8683729152 2026-08-25 12:17:53,710 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:17:53Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "0047f31e-c5b8-5582-8b96-70514abedbc8",
+    "x-signature": "g/ToIqWgVKWFIHdc3It7mduT5ogtFBKs2O709VIOfwQ=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "05351acd7be74332b24499ca65333922",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"05351acd7be74332b24499ca65333922\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: c496abfd-6f6b-473a-addf-a0ae45fc89d2
+8683729152 2026-08-25 12:17:53,712 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "c496abfd-6f6b-473a-addf-a0ae45fc89d2"
+}
+8683729152 2026-08-25 12:17:53,826 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:17:53Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "1811d6eb-7eae-56c2-bca3-79a4b9a22838",
+    "x-signature": "/v34nQ5vNPxjekmdrqLpsb7VGmXZb5X6iFfRzRrwags=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "3a0f6153ed2949f6989f825e90f60900",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"3a0f6153ed2949f6989f825e90f60900\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 1d9763f1-ec6d-4f22-a639-c86be5d4913d
+8683729152 2026-08-25 12:17:53,827 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "1d9763f1-ec6d-4f22-a639-c86be5d4913d"
+}
+8683729152 2026-08-25 12:18:09,168 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:18:09Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "bdc6c63b-e388-5b34-ba9e-925a5890ee6e",
+    "x-signature": "oYVQKp3L0xC6GB9sCDpLWNk7t6N3OdrdM9bciNkN7L0=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "8d6ed92325804249a1effce4da8fc127",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"8d6ed92325804249a1effce4da8fc127\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 1076e14f-f5ce-4c23-bb0f-e081f821bb11
+8683729152 2026-08-25 12:18:09,169 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "1076e14f-f5ce-4c23-bb0f-e081f821bb11"
+}
+8683729152 2026-08-25 12:18:09,278 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:18:09Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "dcc87c7c-a988-5fd2-9b8e-baf2eae072c2",
+    "x-signature": "7McUYYdZUJ7HUIQ7VZTmYV6b0iVbakoMpFLsQWuwDvQ=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "443db9f3c5424377aca96d89843e7e7c",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"443db9f3c5424377aca96d89843e7e7c\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: c6af3fc8-a631-4c8d-aa3f-4a9d91ce3100
+8683729152 2026-08-25 12:18:09,280 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "c6af3fc8-a631-4c8d-aa3f-4a9d91ce3100"
+}
+8683729152 2026-08-25 12:18:24,541 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:18:24Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "7b19ac90-46cc-5212-bbfb-fa38eb7fcabd",
+    "x-signature": "fMzj6rUcYKJdlhDMITkqPDrVv/VgC3GLnEn2VQAfpUY=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "3c698670245e43bf9b8a4ad4d96c1efe",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"3c698670245e43bf9b8a4ad4d96c1efe\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 03fb6e04-aa01-4e6e-a8ee-3a1de4c7b9c9
+8683729152 2026-08-25 12:18:24,542 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "03fb6e04-aa01-4e6e-a8ee-3a1de4c7b9c9"
+}
+8683729152 2026-08-25 12:18:24,743 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:18:24Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "768c0f9c-aa59-5aa9-b311-6893ef1554ef",
+    "x-signature": "SWIVF1z13QlK8H7vVfKUIdBwqgUd2mUKoEV6yx3N36w=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "f6745f5a9c1943e682cf14f7a3063d3e",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"f6745f5a9c1943e682cf14f7a3063d3e\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: c3efb4b8-4192-46ca-985e-3097d7bb6618
+8683729152 2026-08-25 12:18:24,745 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "c3efb4b8-4192-46ca-985e-3097d7bb6618"
+}
+8683729152 2026-08-25 12:18:40,120 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:18:40Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "0ec620d7-b3f2-5561-8fae-338d0ea9ed25",
+    "x-signature": "OVrKrKMnghtSXySCS6xA+075VIae28pEeJGyZl9zQQg=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "f9893e80194443ffb5d6e0d01ced788b",
+        "symbol": "RTX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RTX",
+            "strike_price": "220",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"f9893e80194443ffb5d6e0d01ced788b\",\"symbol\":\"RTX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RTX\",\"strike_price\":\"220\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 611429bf-7254-408b-8af6-cd55e3619020
+8683729152 2026-08-25 12:18:40,122 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "611429bf-7254-408b-8af6-cd55e3619020"
+}
+8683729152 2026-08-25 12:18:40,237 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:18:40Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "30b2dfe2-0820-5c65-ac1c-dd51a3a258ec",
+    "x-signature": "hReh0zKQiCebjmnRfG5tX6uzPZibcjEBFekNb77Gb88=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "cf7fee6760e641dea406f2107d93b240",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"cf7fee6760e641dea406f2107d93b240\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: 61682a22-4b76-444f-be43-f4b035a6b36f
+8683729152 2026-08-25 12:18:40,239 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "61682a22-4b76-444f-be43-f4b035a6b36f"
+}
+8683729152 2026-08-25 12:18:55,679 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T16:18:55Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "ffca065a-765c-530a-99b6-0c72dae179a3",
+    "x-signature": "jEdGum4Cj+FkTd8duZmEsSPmrwY9bAdcuKOpLuBKgh4=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "6006e1c0d3014a64b085c0cefeda15ed",
+        "symbol": "PPL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.25",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PPL",
+            "strike_price": "34",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"6006e1c0d3014a64b085c0cefeda15ed\",\"symbol\":\"PPL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.25\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PPL\",\"strike_price\":\"34\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.', 'error_code': 'OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION, Msg: This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order., RequestID: ebc76d94-2093-488f-81ad-1cf29e4d0cf5
+8683729152 2026-08-25 12:18:55,680 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_SUPPORT_REVERSE_OPTION",
+  "error_msg": "This order cannot be entered because it will reverse an existing position. You may need to close an open position, or cancel an open order, before you can submit this order.",
+  "http_status": 417,
+  "request_id": "ebc76d94-2093-488f-81ad-1cf29e4d0cf5"
+}

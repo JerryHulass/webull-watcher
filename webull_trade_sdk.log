@@ -1,126 +1,358 @@
-8683729152 2026-08-25 00:02:08,328 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:09:31,403 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:11:37,608 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:15:21,252 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:15:21,333 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+8683729152 2026-08-25 16:03:43,533 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
   "_version": "v2",
-  "_action_name": "/openapi/assets/positions",
+  "_action_name": "/openapi/trade/order/place",
   "_protocol_type": "https",
   "_accept_format": "JSON",
-  "_params": {
-    "account_id": "DEA5JKN2"
-  },
-  "_method": "GET",
+  "_params": {},
+  "_method": "POST",
   "_header": {
     "x-version": "v2",
+    "category": "US_OPTION",
     "Accept-Encoding": "gzip",
     "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
-    "x-timestamp": "2026-08-25T04:15:21Z",
+    "x-timestamp": "2026-08-25T20:03:43Z",
     "x-signature-version": "1.0",
     "x-signature-algorithm": "HMAC-SHA256",
-    "x-signature-nonce": "a2f14b2e-9014-5fe0-b27d-1abd36ec916e",
-    "x-signature": "C7e0432zLgbD24/bUasiFkIzPWf89ops4AcVkEYsy+8=",
+    "x-signature-nonce": "575a9fba-efa3-5e46-9f59-22f7395f2d4c",
+    "x-signature": "c9wjdxkYEhkETgxMIBiFDgX9+YcGaixT5uZxwdjqJWo=",
     "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
-    "x-webull-client-source": "sdk"
+    "x-webull-client-source": "sdk",
+    "Content-Length": "505",
+    "Content-Type": "application/json"
   },
-  "_body_params": null,
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "2bc2fdb551124587bfeecd5b9dfff705",
+        "symbol": "PSKY",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.35",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PSKY",
+            "strike_price": "10",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
   "_uri_pattern": null,
   "_uri_params": null,
-  "_content": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"2bc2fdb551124587bfeecd5b9dfff705\",\"symbol\":\"PSKY\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.35\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PSKY\",\"strike_price\":\"10\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
   "_extra_user_agent": {},
   "string_to_sign": "",
   "_request_connect_timeout": null,
   "_request_read_timeout": null,
   "endpoint": "api.sandbox.webull.com",
   "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
-} Response:{'message': 'Invalid account or insufficient permissions.', 'error_code': 'ACCOUNT_ACCESS_DENIED'} ServerException:HTTP Status: 403, Code: ACCOUNT_ACCESS_DENIED, Msg: Invalid account or insufficient permissions., RequestID: 4c995722-55a0-45a8-bd6c-c3657ab77757
-8683729152 2026-08-25 00:15:21,333 webull.core.client ERROR get_response exception. {
-  "error_code": "ACCOUNT_ACCESS_DENIED",
-  "error_msg": "Invalid account or insufficient permissions.",
-  "http_status": 403,
-  "request_id": "4c995722-55a0-45a8-bd6c-c3657ab77757"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: ed453084-dac9-479f-b08a-0a4074ef4b6b
+8683729152 2026-08-25 16:03:43,535 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "ed453084-dac9-479f-b08a-0a4074ef4b6b"
 }
-8683729152 2026-08-25 00:18:20,097 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:18:20,162 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+8683729152 2026-08-25 16:03:43,613 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
   "_version": "v2",
-  "_action_name": "/openapi/assets/positions",
+  "_action_name": "/openapi/trade/order/cancel",
   "_protocol_type": "https",
   "_accept_format": "JSON",
-  "_params": {
-    "account_id": "863417315629211648"
-  },
-  "_method": "GET",
+  "_params": {},
+  "_method": "POST",
   "_header": {
     "x-version": "v2",
     "Accept-Encoding": "gzip",
     "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
-    "x-timestamp": "2026-08-25T04:18:20Z",
+    "x-timestamp": "2026-08-25T20:03:43Z",
     "x-signature-version": "1.0",
     "x-signature-algorithm": "HMAC-SHA256",
-    "x-signature-nonce": "a0283880-aa83-5a54-91f6-acb80805f097",
-    "x-signature": "Aq7j8gXzxoGd/z8bGReDV4Rj+3f0p+ntCtTS6TBTf+I=",
+    "x-signature-nonce": "50f6f8c4-a3a5-5975-83f0-cd37e7cabd5f",
+    "x-signature": "Nfg3svbRa3IlQQJQZLc19SJs/Z5XPA1irgczmXIHiys=",
     "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
-    "x-webull-client-source": "sdk"
+    "x-webull-client-source": "sdk",
+    "Content-Length": "96",
+    "Content-Type": "application/json"
   },
-  "_body_params": null,
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "client_order_id": "2a5f85f8c46f4bca8ff5a8213045a9d0"
+  },
   "_uri_pattern": null,
   "_uri_params": null,
-  "_content": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"client_order_id\":\"2a5f85f8c46f4bca8ff5a8213045a9d0\"}",
   "_extra_user_agent": {},
   "string_to_sign": "",
   "_request_connect_timeout": null,
   "_request_read_timeout": null,
   "endpoint": "api.sandbox.webull.com",
   "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
-} Response:{'message': 'Invalid account or insufficient permissions.', 'error_code': 'ACCOUNT_ACCESS_DENIED'} ServerException:HTTP Status: 403, Code: ACCOUNT_ACCESS_DENIED, Msg: Invalid account or insufficient permissions., RequestID: 14df6a4c-c191-411c-a15e-ab5d07751227
-8683729152 2026-08-25 00:18:20,162 webull.core.client ERROR get_response exception. {
-  "error_code": "ACCOUNT_ACCESS_DENIED",
-  "error_msg": "Invalid account or insufficient permissions.",
-  "http_status": 403,
-  "request_id": "14df6a4c-c191-411c-a15e-ab5d07751227"
+} Response:{'message': 'Order can not be canceled', 'error_code': 'OPENAPI_ORDER_CAN_NOT_BE_CANCEL'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_CAN_NOT_BE_CANCEL, Msg: Order can not be canceled, RequestID: c4edcf06-d21d-4ff7-abfe-32c91e63230f
+8683729152 2026-08-25 16:03:43,614 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_CAN_NOT_BE_CANCEL",
+  "error_msg": "Order can not be canceled",
+  "http_status": 417,
+  "request_id": "c4edcf06-d21d-4ff7-abfe-32c91e63230f"
 }
-8683729152 2026-08-25 00:18:46,166 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:18:46,222 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+8683729152 2026-08-25 16:03:45,735 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
   "_version": "v2",
-  "_action_name": "/openapi/assets/positions",
+  "_action_name": "/openapi/trade/order/place",
   "_protocol_type": "https",
   "_accept_format": "JSON",
-  "_params": {
-    "account_id": "863417315629211648"
-  },
-  "_method": "GET",
+  "_params": {},
+  "_method": "POST",
   "_header": {
     "x-version": "v2",
+    "category": "US_OPTION",
     "Accept-Encoding": "gzip",
     "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
-    "x-timestamp": "2026-08-25T04:18:46Z",
+    "x-timestamp": "2026-08-25T20:03:45Z",
     "x-signature-version": "1.0",
     "x-signature-algorithm": "HMAC-SHA256",
-    "x-signature-nonce": "9fbeec40-9b3f-5beb-b310-dea839d594e8",
-    "x-signature": "w8P3NXH0Uv45jQAZd46T69thoB9oGa5F5t1mghY1bjc=",
+    "x-signature-nonce": "ffa5aa96-6a09-5704-8d88-cd21164bf14d",
+    "x-signature": "n9ObQngliRSMkwgs5rVA4jZgfR3Sb1hztVa5rF1qglc=",
     "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
-    "x-webull-client-source": "sdk"
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
   },
-  "_body_params": null,
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "77c5878c79384e5c853eb2c90deeb54b",
+        "symbol": "HST",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "HST",
+            "strike_price": "23",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
   "_uri_pattern": null,
   "_uri_params": null,
-  "_content": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"77c5878c79384e5c853eb2c90deeb54b\",\"symbol\":\"HST\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"HST\",\"strike_price\":\"23\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
   "_extra_user_agent": {},
   "string_to_sign": "",
   "_request_connect_timeout": null,
   "_request_read_timeout": null,
   "endpoint": "api.sandbox.webull.com",
   "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
-} Response:{'message': 'Invalid account or insufficient permissions.', 'error_code': 'ACCOUNT_ACCESS_DENIED'} ServerException:HTTP Status: 403, Code: ACCOUNT_ACCESS_DENIED, Msg: Invalid account or insufficient permissions., RequestID: fcbfbc26-e06f-45c9-a60f-a5fe917d20e5
-8683729152 2026-08-25 00:18:46,225 webull.core.client ERROR get_response exception. {
-  "error_code": "ACCOUNT_ACCESS_DENIED",
-  "error_msg": "Invalid account or insufficient permissions.",
-  "http_status": 403,
-  "request_id": "fcbfbc26-e06f-45c9-a60f-a5fe917d20e5"
+} Response:{'message': 'You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET.', 'error_code': 'OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME, Msg: You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET., RequestID: f3b15848-3a77-486f-b890-d4fbf209d7de
+8683729152 2026-08-25 16:03:45,736 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME",
+  "error_msg": "You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET.",
+  "http_status": 417,
+  "request_id": "f3b15848-3a77-486f-b890-d4fbf209d7de"
 }
-8683729152 2026-08-25 00:20:33,083 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:27:51,369 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:33:43,040 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:34:54,644 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:36:08,852 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
-8683729152 2026-08-25 00:38:21,348 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 16:04:00,998 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T20:04:00Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "c9447bc9-170e-57d4-b057-0d8f77da56ff",
+    "x-signature": "gNsCdSU0cKmVH/uxP+1oMFWGBHtrBqamk3PX2a78FM4=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "505",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "c5324dac0ce645fc80bf6f8c36d8c2e0",
+        "symbol": "PSKY",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.35",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PSKY",
+            "strike_price": "10",
+            "option_expire_date": "2026-08-28",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"c5324dac0ce645fc80bf6f8c36d8c2e0\",\"symbol\":\"PSKY\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.35\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PSKY\",\"strike_price\":\"10\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 07b943b0-3f07-428e-bad6-70405803cfa2
+8683729152 2026-08-25 16:04:00,999 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
+  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+  "http_status": 417,
+  "request_id": "07b943b0-3f07-428e-bad6-70405803cfa2"
+}
+8683729152 2026-08-25 16:04:01,171 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/cancel",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T20:04:00Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "c6a03a27-e64b-5b9f-87f4-483689d1a22d",
+    "x-signature": "oYb7fNQBg9HGl4XFczbosk5OkYqCYcPrK4Th2p6Ge1U=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "96",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "client_order_id": "2a5f85f8c46f4bca8ff5a8213045a9d0"
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"client_order_id\":\"2a5f85f8c46f4bca8ff5a8213045a9d0\"}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Order can not be canceled', 'error_code': 'OPENAPI_ORDER_CAN_NOT_BE_CANCEL'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_CAN_NOT_BE_CANCEL, Msg: Order can not be canceled, RequestID: 1b8963f8-35c4-4348-9b87-8a3868e8e1ff
+8683729152 2026-08-25 16:04:01,171 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_CAN_NOT_BE_CANCEL",
+  "error_msg": "Order can not be canceled",
+  "http_status": 417,
+  "request_id": "1b8963f8-35c4-4348-9b87-8a3868e8e1ff"
+}
+8683729152 2026-08-25 16:04:03,308 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T20:04:03Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "a8188604-715a-5021-950c-b731c46b398e",
+    "x-signature": "XAiJQNDLMW/drHnfJc07K4Q+6KCjpGoxX8GjfI9h6cU=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "8e7d82a2183445bb8ea8bb62eeed3f1d",
+        "symbol": "HST",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "HST",
+            "strike_price": "23",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"8e7d82a2183445bb8ea8bb62eeed3f1d\",\"symbol\":\"HST\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"HST\",\"strike_price\":\"23\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET.', 'error_code': 'OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME, Msg: You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET., RequestID: 46e90330-064b-41fb-b594-5f276a942cab
+8683729152 2026-08-25 16:04:03,309 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME",
+  "error_msg": "You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET.",
+  "http_status": 417,
+  "request_id": "46e90330-064b-41fb-b594-5f276a942cab"
+}

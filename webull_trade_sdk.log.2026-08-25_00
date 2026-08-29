@@ -1,0 +1,126 @@
+8683729152 2026-08-25 00:02:08,328 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:09:31,403 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:11:37,608 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:15:21,252 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:15:21,333 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/assets/positions",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {
+    "account_id": "DEA5JKN2"
+  },
+  "_method": "GET",
+  "_header": {
+    "x-version": "v2",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T04:15:21Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "a2f14b2e-9014-5fe0-b27d-1abd36ec916e",
+    "x-signature": "C7e0432zLgbD24/bUasiFkIzPWf89ops4AcVkEYsy+8=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk"
+  },
+  "_body_params": null,
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": null,
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Invalid account or insufficient permissions.', 'error_code': 'ACCOUNT_ACCESS_DENIED'} ServerException:HTTP Status: 403, Code: ACCOUNT_ACCESS_DENIED, Msg: Invalid account or insufficient permissions., RequestID: 4c995722-55a0-45a8-bd6c-c3657ab77757
+8683729152 2026-08-25 00:15:21,333 webull.core.client ERROR get_response exception. {
+  "error_code": "ACCOUNT_ACCESS_DENIED",
+  "error_msg": "Invalid account or insufficient permissions.",
+  "http_status": 403,
+  "request_id": "4c995722-55a0-45a8-bd6c-c3657ab77757"
+}
+8683729152 2026-08-25 00:18:20,097 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:18:20,162 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/assets/positions",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {
+    "account_id": "863417315629211648"
+  },
+  "_method": "GET",
+  "_header": {
+    "x-version": "v2",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T04:18:20Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "a0283880-aa83-5a54-91f6-acb80805f097",
+    "x-signature": "Aq7j8gXzxoGd/z8bGReDV4Rj+3f0p+ntCtTS6TBTf+I=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk"
+  },
+  "_body_params": null,
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": null,
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Invalid account or insufficient permissions.', 'error_code': 'ACCOUNT_ACCESS_DENIED'} ServerException:HTTP Status: 403, Code: ACCOUNT_ACCESS_DENIED, Msg: Invalid account or insufficient permissions., RequestID: 14df6a4c-c191-411c-a15e-ab5d07751227
+8683729152 2026-08-25 00:18:20,162 webull.core.client ERROR get_response exception. {
+  "error_code": "ACCOUNT_ACCESS_DENIED",
+  "error_msg": "Invalid account or insufficient permissions.",
+  "http_status": 403,
+  "request_id": "14df6a4c-c191-411c-a15e-ab5d07751227"
+}
+8683729152 2026-08-25 00:18:46,166 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:18:46,222 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/assets/positions",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {
+    "account_id": "863417315629211648"
+  },
+  "_method": "GET",
+  "_header": {
+    "x-version": "v2",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-08-25T04:18:46Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "9fbeec40-9b3f-5beb-b310-dea839d594e8",
+    "x-signature": "w8P3NXH0Uv45jQAZd46T69thoB9oGa5F5t1mghY1bjc=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-webull-client-source": "sdk"
+  },
+  "_body_params": null,
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": null,
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Invalid account or insufficient permissions.', 'error_code': 'ACCOUNT_ACCESS_DENIED'} ServerException:HTTP Status: 403, Code: ACCOUNT_ACCESS_DENIED, Msg: Invalid account or insufficient permissions., RequestID: fcbfbc26-e06f-45c9-a60f-a5fe917d20e5
+8683729152 2026-08-25 00:18:46,225 webull.core.client ERROR get_response exception. {
+  "error_code": "ACCOUNT_ACCESS_DENIED",
+  "error_msg": "Invalid account or insufficient permissions.",
+  "http_status": 403,
+  "request_id": "fcbfbc26-e06f-45c9-a60f-a5fe917d20e5"
+}
+8683729152 2026-08-25 00:20:33,083 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:27:51,369 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:33:43,040 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:34:54,644 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:36:08,852 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-08-25 00:38:21,348 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
