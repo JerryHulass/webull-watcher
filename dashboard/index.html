@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>0DTE Algo Dashboard</title>
+    <!-- Use TailwindCSS for beautiful, fast styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-gray-900 text-white p-8">
+
+    <h1 class="text-3xl font-bold mb-8 text-blue-400">⚡ 0DTE Trading Bot Live Dashboard</h1>
+
+    <div class="grid grid-cols-2 gap-8">
+        <!-- Live Signals Panel -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2">📡 Live Discord Signals</h2>
+            <ul id="signals-list" class="space-y-3">
+                <li class="text-gray-400">Waiting for signals...</li>
+            </ul>
+        </div>
+
+        <!-- Live Trades Panel -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2">🛒 Live Executions</h2>
+            <ul id="trades-list" class="space-y-3">
+                <li class="text-gray-400">Waiting for bot to execute trades...</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Supabase Client
+        const SUPABASE_URL = 'https://szyscayudikddqcqmreq.supabase.co/rest/v1/';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6eXNjYXl1ZGlrZGRxY3FtcmVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3MTMzNDUsImV4cCI6MjEwNDI4OTM0NX0.vpUMNg44alCpus-66SEaxHtbW0dOjOspAEqAEJgR500';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // Helper function to add items to the UI
+        function prependItem(listId, htmlContent) {
+            const list = document.getElementById(listId);
+            // Remove the "Waiting..." text if it's the first item
+            if (list.innerHTML.includes('Waiting')) list.innerHTML = ''; 
+            
+            const li = document.createElement('li');
+            li.className = "bg-gray-700 p-3 rounded text-sm";
+            li.innerHTML = htmlContent;
+            list.prepend(li);
+        }
+
+        // Subscribe to real-time inserts on the 'signals' table
+        supabase.channel('signals-channel')
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'signals' }, payload => {
+                const data = payload.new;
+                const time = new Date(data.created_at).toLocaleTimeString();
+                prependItem('signals-list', `<span class="text-blue-400">[${time}]</span> <b>${data.ticker} ${data.option_type}</b> <br><span class="text-xs text-gray-400">${data.raw_text}</span>`);
+            }).subscribe();
+
+        // Subscribe to real-time inserts on the 'trades' table
+        supabase.channel('trades-channel')
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'trades' }, payload => {
+                const data = payload.new;
+                const time = new Date(data.created_at).toLocaleTimeString();
+                const color = data.action === 'BUY' ? 'text-green-400' : 'text-red-400';
+                const pnl = data.action === 'SELL' ? `| PnL: <b>${data.pnl_pct}%</b>` : '';
+                
+                prependItem('trades-list', `<span class="text-blue-400">[${time}]</span> <b class="${color}">${data.action}</b> ${data.qty}x ${data.ticker} @ $${data.price} <br><span class="text-xs text-gray-400">Reason: ${data.reason} ${pnl}</span>`);
+            }).subscribe();
+    </script>
+</body>
+</html>

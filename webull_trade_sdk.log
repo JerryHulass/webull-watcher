@@ -1,4 +1,5 @@
-8683729152 2026-08-25 16:03:43,533 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+8683729152 2026-09-06 12:48:13,970 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-09-06 12:48:14,420 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
   "_version": "v2",
   "_action_name": "/openapi/trade/order/place",
   "_protocol_type": "https",
@@ -10,14 +11,14 @@
     "category": "US_OPTION",
     "Accept-Encoding": "gzip",
     "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
-    "x-timestamp": "2026-08-25T20:03:43Z",
+    "x-timestamp": "2026-09-06T16:48:14Z",
     "x-signature-version": "1.0",
     "x-signature-algorithm": "HMAC-SHA256",
-    "x-signature-nonce": "575a9fba-efa3-5e46-9f59-22f7395f2d4c",
-    "x-signature": "c9wjdxkYEhkETgxMIBiFDgX9+YcGaixT5uZxwdjqJWo=",
-    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-signature-nonce": "ae5d2cdd-f7b6-563d-9212-ea4b3d50b534",
+    "x-signature": "RK0CFk+aVdPzwINI9k8uXfObHShRlqnVku+VoecC2N0=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
     "x-webull-client-source": "sdk",
-    "Content-Length": "505",
+    "Content-Length": "501",
     "Content-Type": "application/json"
   },
   "_body_params": {
@@ -25,8 +26,8 @@
     "new_orders": [
       {
         "combo_type": "NORMAL",
-        "client_order_id": "2bc2fdb551124587bfeecd5b9dfff705",
-        "symbol": "PSKY",
+        "client_order_id": "bd3ad118c8f64658b8f6cfd4af800beb",
+        "symbol": "D",
         "instrument_type": "OPTION",
         "option_strategy": "SINGLE",
         "market": "US",
@@ -40,9 +41,9 @@
           {
             "side": "SELL",
             "quantity": "1",
-            "symbol": "PSKY",
-            "strike_price": "10",
-            "option_expire_date": "2026-08-28",
+            "symbol": "D",
+            "strike_price": "67.5",
+            "option_expire_date": "2026-09-18",
             "instrument_type": "OPTION",
             "option_type": "CALL",
             "market": "US"
@@ -53,21 +54,21 @@
   },
   "_uri_pattern": null,
   "_uri_params": null,
-  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"2bc2fdb551124587bfeecd5b9dfff705\",\"symbol\":\"PSKY\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.35\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PSKY\",\"strike_price\":\"10\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"bd3ad118c8f64658b8f6cfd4af800beb\",\"symbol\":\"D\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.35\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"D\",\"strike_price\":\"67.5\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
   "_extra_user_agent": {},
   "string_to_sign": "",
   "_request_connect_timeout": null,
   "_request_read_timeout": null,
   "endpoint": "api.sandbox.webull.com",
   "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
-} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: ed453084-dac9-479f-b08a-0a4074ef4b6b
-8683729152 2026-08-25 16:03:43,535 webull.core.client ERROR get_response exception. {
-  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
-  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: d82c965e-915e-4341-9ca3-c30ae43803fb
+8683729152 2026-09-06 12:48:14,421 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
   "http_status": 417,
-  "request_id": "ed453084-dac9-479f-b08a-0a4074ef4b6b"
+  "request_id": "d82c965e-915e-4341-9ca3-c30ae43803fb"
 }
-8683729152 2026-08-25 16:03:43,613 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+8683729152 2026-09-06 12:48:15,557 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
   "_version": "v2",
   "_action_name": "/openapi/trade/order/cancel",
   "_protocol_type": "https",
@@ -78,12 +79,12 @@
     "x-version": "v2",
     "Accept-Encoding": "gzip",
     "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
-    "x-timestamp": "2026-08-25T20:03:43Z",
+    "x-timestamp": "2026-09-06T16:48:14Z",
     "x-signature-version": "1.0",
     "x-signature-algorithm": "HMAC-SHA256",
-    "x-signature-nonce": "50f6f8c4-a3a5-5975-83f0-cd37e7cabd5f",
-    "x-signature": "Nfg3svbRa3IlQQJQZLc19SJs/Z5XPA1irgczmXIHiys=",
-    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-signature-nonce": "72127fb9-f0c2-551d-89d4-b50129875047",
+    "x-signature": "Bflkj+41lK7Q9RAffPxgHZK0iQFNrTtrIuRBeiBcJas=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
     "x-webull-client-source": "sdk",
     "Content-Length": "96",
     "Content-Type": "application/json"
@@ -101,14 +102,14 @@
   "_request_read_timeout": null,
   "endpoint": "api.sandbox.webull.com",
   "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
-} Response:{'message': 'Order can not be canceled', 'error_code': 'OPENAPI_ORDER_CAN_NOT_BE_CANCEL'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_CAN_NOT_BE_CANCEL, Msg: Order can not be canceled, RequestID: c4edcf06-d21d-4ff7-abfe-32c91e63230f
-8683729152 2026-08-25 16:03:43,614 webull.core.client ERROR get_response exception. {
-  "error_code": "OPENAPI_ORDER_CAN_NOT_BE_CANCEL",
-  "error_msg": "Order can not be canceled",
+} Response:{'message': 'No order record.', 'error_code': 'OPENAPI_ORDER_NOT_FOUND'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_NOT_FOUND, Msg: No order record., RequestID: d3b634b4-8217-4950-813b-2a85df1a3ea9
+8683729152 2026-09-06 12:48:15,557 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_ORDER_NOT_FOUND",
+  "error_msg": "No order record.",
   "http_status": 417,
-  "request_id": "c4edcf06-d21d-4ff7-abfe-32c91e63230f"
+  "request_id": "d3b634b4-8217-4950-813b-2a85df1a3ea9"
 }
-8683729152 2026-08-25 16:03:45,735 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+8683729152 2026-09-06 12:48:17,704 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
   "_version": "v2",
   "_action_name": "/openapi/trade/order/place",
   "_protocol_type": "https",
@@ -120,12 +121,12 @@
     "category": "US_OPTION",
     "Accept-Encoding": "gzip",
     "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
-    "x-timestamp": "2026-08-25T20:03:45Z",
+    "x-timestamp": "2026-09-06T16:48:17Z",
     "x-signature-version": "1.0",
     "x-signature-algorithm": "HMAC-SHA256",
-    "x-signature-nonce": "ffa5aa96-6a09-5704-8d88-cd21164bf14d",
-    "x-signature": "n9ObQngliRSMkwgs5rVA4jZgfR3Sb1hztVa5rF1qglc=",
-    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-signature-nonce": "0712d72a-7c8c-54bf-b6d2-a61a4931921b",
+    "x-signature": "A/Hv9Vpw9zcOgDyBW5L16K8+2OjjONwPEpC7Uf9gk68=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
     "x-webull-client-source": "sdk",
     "Content-Length": "502",
     "Content-Type": "application/json"
@@ -135,7 +136,7 @@
     "new_orders": [
       {
         "combo_type": "NORMAL",
-        "client_order_id": "77c5878c79384e5c853eb2c90deeb54b",
+        "client_order_id": "b49d011fe8c74fbd82b22f2f98649745",
         "symbol": "HST",
         "instrument_type": "OPTION",
         "option_strategy": "SINGLE",
@@ -163,21 +164,175 @@
   },
   "_uri_pattern": null,
   "_uri_params": null,
-  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"77c5878c79384e5c853eb2c90deeb54b\",\"symbol\":\"HST\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"HST\",\"strike_price\":\"23\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"b49d011fe8c74fbd82b22f2f98649745\",\"symbol\":\"HST\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"HST\",\"strike_price\":\"23\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
   "_extra_user_agent": {},
   "string_to_sign": "",
   "_request_connect_timeout": null,
   "_request_read_timeout": null,
   "endpoint": "api.sandbox.webull.com",
   "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
-} Response:{'message': 'You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET.', 'error_code': 'OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME, Msg: You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET., RequestID: f3b15848-3a77-486f-b890-d4fbf209d7de
-8683729152 2026-08-25 16:03:45,736 webull.core.client ERROR get_response exception. {
-  "error_code": "OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME",
-  "error_msg": "You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET.",
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: a8a7789c-88c2-4cc8-9137-d3233b4c16ef
+8683729152 2026-09-06 12:48:17,704 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
   "http_status": 417,
-  "request_id": "f3b15848-3a77-486f-b890-d4fbf209d7de"
+  "request_id": "a8a7789c-88c2-4cc8-9137-d3233b4c16ef"
 }
-8683729152 2026-08-25 16:04:00,998 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+8683729152 2026-09-06 12:48:38,586 webull.core.client ERROR ServerException occurred. Host:api.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/config",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "GET",
+  "_header": {
+    "x-version": "v2",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T16:48:38Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "6c719d5a-91f9-5eaa-aa32-c13737188b28",
+    "x-signature": "1J+FEqJioyYCyAGWNF5xTY6VnMk393D5pqo+L+m4dOM=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk"
+  },
+  "_body_params": null,
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": null,
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Invalid credentials. Please verify your credentials and ensure you are connecting to the correct environment', 'error_code': 'UNAUTHORIZED'} ServerException:HTTP Status: 401, Code: UNAUTHORIZED, Msg: Invalid credentials. Please verify your credentials and ensure you are connecting to the correct environment, RequestID: 01466191-1e67-43b6-be3d-bc58b54f1c8c
+8683729152 2026-09-06 12:48:38,589 webull.core.client ERROR get_response exception. {
+  "error_code": "UNAUTHORIZED",
+  "error_msg": "Invalid credentials. Please verify your credentials and ensure you are connecting to the correct environment",
+  "http_status": 401,
+  "request_id": "01466191-1e67-43b6-be3d-bc58b54f1c8c"
+}
+8683729152 2026-09-06 12:52:29,355 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-09-06 12:52:32,923 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/assets/positions",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {
+    "account_id": "DEA5JKN2"
+  },
+  "_method": "GET",
+  "_header": {
+    "x-version": "v2",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T16:52:32Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "a9080d2c-fa90-5e10-b681-f4562101c95f",
+    "x-signature": "0gky5hUbd2+YPMAKM71Zf+jeKAf7piFLvxSISgx0b4c=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk"
+  },
+  "_body_params": null,
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": null,
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Invalid account or insufficient permissions.', 'error_code': 'ACCOUNT_ACCESS_DENIED'} ServerException:HTTP Status: 403, Code: ACCOUNT_ACCESS_DENIED, Msg: Invalid account or insufficient permissions., RequestID: 66994d0e-d183-4763-850a-ce71c433ea39
+8683729152 2026-09-06 12:52:32,923 webull.core.client ERROR get_response exception. {
+  "error_code": "ACCOUNT_ACCESS_DENIED",
+  "error_msg": "Invalid account or insufficient permissions.",
+  "http_status": 403,
+  "request_id": "66994d0e-d183-4763-850a-ce71c433ea39"
+}
+8683729152 2026-09-06 12:52:38,834 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/assets/positions",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {
+    "account_id": "DEA5JKN2"
+  },
+  "_method": "GET",
+  "_header": {
+    "x-version": "v2",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T16:52:38Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "f7151790-231d-582f-bbd7-038f3a45c8e4",
+    "x-signature": "tOFD3Xj6T6fYvzlvNCAxyQ5C3FAy1AFldGmVVu75cS8=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk"
+  },
+  "_body_params": null,
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": null,
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Invalid account or insufficient permissions.', 'error_code': 'ACCOUNT_ACCESS_DENIED'} ServerException:HTTP Status: 403, Code: ACCOUNT_ACCESS_DENIED, Msg: Invalid account or insufficient permissions., RequestID: 3f8526aa-410d-4661-96e2-f983f9814fd6
+8683729152 2026-09-06 12:52:38,834 webull.core.client ERROR get_response exception. {
+  "error_code": "ACCOUNT_ACCESS_DENIED",
+  "error_msg": "Invalid account or insufficient permissions.",
+  "http_status": 403,
+  "request_id": "3f8526aa-410d-4661-96e2-f983f9814fd6"
+}
+8683729152 2026-09-06 12:52:44,647 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/assets/positions",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {
+    "account_id": "DEA5JKN2"
+  },
+  "_method": "GET",
+  "_header": {
+    "x-version": "v2",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T16:52:44Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "f024101c-8d0d-57ec-8b57-d38795a411fb",
+    "x-signature": "6bt9qRQdMoqvz65RqmBWhT0mYNtZIlQaIU0ebWTHQ2o=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk"
+  },
+  "_body_params": null,
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": null,
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Invalid account or insufficient permissions.', 'error_code': 'ACCOUNT_ACCESS_DENIED'} ServerException:HTTP Status: 403, Code: ACCOUNT_ACCESS_DENIED, Msg: Invalid account or insufficient permissions., RequestID: 2675d8d0-fed6-4c43-a839-c7c04299fec9
+8683729152 2026-09-06 12:52:44,648 webull.core.client ERROR get_response exception. {
+  "error_code": "ACCOUNT_ACCESS_DENIED",
+  "error_msg": "Invalid account or insufficient permissions.",
+  "http_status": 403,
+  "request_id": "2675d8d0-fed6-4c43-a839-c7c04299fec9"
+}
+8683729152 2026-09-06 12:57:16,447 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-09-06 12:58:20,235 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-09-06 13:00:00,141 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-09-06 13:00:07,046 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
   "_version": "v2",
   "_action_name": "/openapi/trade/order/place",
   "_protocol_type": "https",
@@ -189,14 +344,14 @@
     "category": "US_OPTION",
     "Accept-Encoding": "gzip",
     "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
-    "x-timestamp": "2026-08-25T20:04:00Z",
+    "x-timestamp": "2026-09-06T17:00:06Z",
     "x-signature-version": "1.0",
     "x-signature-algorithm": "HMAC-SHA256",
-    "x-signature-nonce": "c9447bc9-170e-57d4-b057-0d8f77da56ff",
-    "x-signature": "gNsCdSU0cKmVH/uxP+1oMFWGBHtrBqamk3PX2a78FM4=",
-    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-signature-nonce": "14450145-0468-507b-af71-27c07ec884d3",
+    "x-signature": "xgTB7Sc9zxmZP8s0zjOKnFe76qBm5sC8MghckMc2lYg=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
     "x-webull-client-source": "sdk",
-    "Content-Length": "505",
+    "Content-Length": "507",
     "Content-Type": "application/json"
   },
   "_body_params": {
@@ -204,13 +359,13 @@
     "new_orders": [
       {
         "combo_type": "NORMAL",
-        "client_order_id": "c5324dac0ce645fc80bf6f8c36d8c2e0",
-        "symbol": "PSKY",
+        "client_order_id": "35648ab574b640fc98ab8d908db490a0",
+        "symbol": "RBLX",
         "instrument_type": "OPTION",
         "option_strategy": "SINGLE",
         "market": "US",
         "order_type": "LIMIT",
-        "limit_price": "0.35",
+        "limit_price": "0.05",
         "quantity": "1",
         "side": "SELL",
         "time_in_force": "DAY",
@@ -219,9 +374,9 @@
           {
             "side": "SELL",
             "quantity": "1",
-            "symbol": "PSKY",
-            "strike_price": "10",
-            "option_expire_date": "2026-08-28",
+            "symbol": "RBLX",
+            "strike_price": "40.5",
+            "option_expire_date": "2026-09-04",
             "instrument_type": "OPTION",
             "option_type": "CALL",
             "market": "US"
@@ -232,62 +387,21 @@
   },
   "_uri_pattern": null,
   "_uri_params": null,
-  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"c5324dac0ce645fc80bf6f8c36d8c2e0\",\"symbol\":\"PSKY\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.35\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PSKY\",\"strike_price\":\"10\",\"option_expire_date\":\"2026-08-28\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"35648ab574b640fc98ab8d908db490a0\",\"symbol\":\"RBLX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RBLX\",\"strike_price\":\"40.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
   "_extra_user_agent": {},
   "string_to_sign": "",
   "_request_connect_timeout": null,
   "_request_read_timeout": null,
   "endpoint": "api.sandbox.webull.com",
   "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
-} Response:{'message': 'You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.', 'error_code': 'OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT, Msg: You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again., RequestID: 07b943b0-3f07-428e-bad6-70405803cfa2
-8683729152 2026-08-25 16:04:00,999 webull.core.client ERROR get_response exception. {
-  "error_code": "OPENAPI_OPTION_LONG_POSITION_MUST_BE_CLOSE_THAN_SELL_SHORT",
-  "error_msg": "You can not place order in excess of current holding quantity to create a position on the other side of the market. Please check your open orders and try again.",
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: c1447f53-b9a5-43c5-9c46-ed77b5b17357
+8683729152 2026-09-06 13:00:07,047 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
   "http_status": 417,
-  "request_id": "07b943b0-3f07-428e-bad6-70405803cfa2"
+  "request_id": "c1447f53-b9a5-43c5-9c46-ed77b5b17357"
 }
-8683729152 2026-08-25 16:04:01,171 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
-  "_version": "v2",
-  "_action_name": "/openapi/trade/order/cancel",
-  "_protocol_type": "https",
-  "_accept_format": "JSON",
-  "_params": {},
-  "_method": "POST",
-  "_header": {
-    "x-version": "v2",
-    "Accept-Encoding": "gzip",
-    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
-    "x-timestamp": "2026-08-25T20:04:00Z",
-    "x-signature-version": "1.0",
-    "x-signature-algorithm": "HMAC-SHA256",
-    "x-signature-nonce": "c6a03a27-e64b-5b9f-87f4-483689d1a22d",
-    "x-signature": "oYb7fNQBg9HGl4XFczbosk5OkYqCYcPrK4Th2p6Ge1U=",
-    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
-    "x-webull-client-source": "sdk",
-    "Content-Length": "96",
-    "Content-Type": "application/json"
-  },
-  "_body_params": {
-    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
-    "client_order_id": "2a5f85f8c46f4bca8ff5a8213045a9d0"
-  },
-  "_uri_pattern": null,
-  "_uri_params": null,
-  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"client_order_id\":\"2a5f85f8c46f4bca8ff5a8213045a9d0\"}",
-  "_extra_user_agent": {},
-  "string_to_sign": "",
-  "_request_connect_timeout": null,
-  "_request_read_timeout": null,
-  "endpoint": "api.sandbox.webull.com",
-  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
-} Response:{'message': 'Order can not be canceled', 'error_code': 'OPENAPI_ORDER_CAN_NOT_BE_CANCEL'} ServerException:HTTP Status: 417, Code: OPENAPI_ORDER_CAN_NOT_BE_CANCEL, Msg: Order can not be canceled, RequestID: 1b8963f8-35c4-4348-9b87-8a3868e8e1ff
-8683729152 2026-08-25 16:04:01,171 webull.core.client ERROR get_response exception. {
-  "error_code": "OPENAPI_ORDER_CAN_NOT_BE_CANCEL",
-  "error_msg": "Order can not be canceled",
-  "http_status": 417,
-  "request_id": "1b8963f8-35c4-4348-9b87-8a3868e8e1ff"
-}
-8683729152 2026-08-25 16:04:03,308 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+8683729152 2026-09-06 13:00:07,202 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
   "_version": "v2",
   "_action_name": "/openapi/trade/order/place",
   "_protocol_type": "https",
@@ -299,12 +413,564 @@
     "category": "US_OPTION",
     "Accept-Encoding": "gzip",
     "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
-    "x-timestamp": "2026-08-25T20:04:03Z",
+    "x-timestamp": "2026-09-06T17:00:07Z",
     "x-signature-version": "1.0",
     "x-signature-algorithm": "HMAC-SHA256",
-    "x-signature-nonce": "a8188604-715a-5021-950c-b731c46b398e",
-    "x-signature": "XAiJQNDLMW/drHnfJc07K4Q+6KCjpGoxX8GjfI9h6cU=",
-    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/2.0.18 python-requests/2.32.5",
+    "x-signature-nonce": "027d954d-850c-53e3-bab1-e0d5c2933f2f",
+    "x-signature": "FmWZUGm1X6oICIxxge5T4Xc19Q53o5uR7CxhjHJXpVU=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "495feab8c57f4e5cbfaf39ffa27d5f81",
+        "symbol": "CCL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "CCL",
+            "strike_price": "23.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"495feab8c57f4e5cbfaf39ffa27d5f81\",\"symbol\":\"CCL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"CCL\",\"strike_price\":\"23.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 2098a00a-f888-4550-add1-443944007c87
+8683729152 2026-09-06 13:00:07,203 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "2098a00a-f888-4550-add1-443944007c87"
+}
+8683729152 2026-09-06 13:00:07,339 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:07Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "83022abb-edd2-58c8-8a68-3bfe578b77e6",
+    "x-signature": "DRQu+2DLae+JRT8EodQsqMg5V4PnTMtNibFb0fpopk0=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "505",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "da45ab72734c4c6c8acb9b32a0aad242",
+        "symbol": "DELL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "DELL",
+            "strike_price": "345",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"da45ab72734c4c6c8acb9b32a0aad242\",\"symbol\":\"DELL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"DELL\",\"strike_price\":\"345\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 5ab8f5d8-e416-4663-9a59-017e9f707515
+8683729152 2026-09-06 13:00:07,340 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "5ab8f5d8-e416-4663-9a59-017e9f707515"
+}
+8683729152 2026-09-06 13:00:07,507 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:07Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "aa952beb-b7b6-5ef2-954f-73fcbd6db3d3",
+    "x-signature": "UOOVaA1fmHJzaSOP8w21a/T/ZCobYZiU8s8Je+XHiwo=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "506",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "7efc8165cd2f443794029305e834f4c2",
+        "symbol": "PGR",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PGR",
+            "strike_price": "222.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"7efc8165cd2f443794029305e834f4c2\",\"symbol\":\"PGR\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PGR\",\"strike_price\":\"222.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 28eec8fc-520b-4caa-a087-3852dab61399
+8683729152 2026-09-06 13:00:07,508 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "28eec8fc-520b-4caa-a087-3852dab61399"
+}
+8683729152 2026-09-06 13:00:07,696 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:07Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "06ae29f2-779b-57b0-a238-95cafb369029",
+    "x-signature": "Twx1JlRkqsp2t/LCYQStRBWimCz1N3AGFrf6xGz5Stw=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "50e127f37a9a4a6faf4e9fa9fcbdba18",
+        "symbol": "VRT",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "VRT",
+            "strike_price": "275",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"50e127f37a9a4a6faf4e9fa9fcbdba18\",\"symbol\":\"VRT\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"VRT\",\"strike_price\":\"275\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: a28e6f68-a0cf-4aed-97be-80bcc8893700
+8683729152 2026-09-06 13:00:07,697 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "a28e6f68-a0cf-4aed-97be-80bcc8893700"
+}
+8683729152 2026-09-06 13:00:07,828 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:07Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "0e75500d-ba0d-5b6d-b616-2b4057b3e597",
+    "x-signature": "37yc7u1Yh+fWXmO8mrV8iCopCnD01vQlHmC+R8sWwqM=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "505",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "039b8a315add42a58450b9df3464768b",
+        "symbol": "TSM",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "TSM",
+            "strike_price": "397.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"039b8a315add42a58450b9df3464768b\",\"symbol\":\"TSM\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"TSM\",\"strike_price\":\"397.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: bbae33e6-cb20-48ea-a5b3-11dfcd0390b8
+8683729152 2026-09-06 13:00:07,829 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "bbae33e6-cb20-48ea-a5b3-11dfcd0390b8"
+}
+8683729152 2026-09-06 13:00:07,973 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:07Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "ebe92c3a-6730-55c6-ab31-c8d9fc5cc322",
+    "x-signature": "YDHMGOnHsDBD3OaEfE9nZnBCcxpjjq1VLFMLtUo5bg0=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "503",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "a370ceb027794033aa51a4fcef8260b0",
+        "symbol": "RKT",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RKT",
+            "strike_price": "14",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"a370ceb027794033aa51a4fcef8260b0\",\"symbol\":\"RKT\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RKT\",\"strike_price\":\"14\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: d1e38444-7225-4d95-8b19-8d44973cb79a
+8683729152 2026-09-06 13:00:07,974 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "d1e38444-7225-4d95-8b19-8d44973cb79a"
+}
+8683729152 2026-09-06 13:00:08,126 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:07Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "a447c191-0bf2-5926-a8b2-ce6a48ec37c0",
+    "x-signature": "ynZWmzT1GF1lk2+5C4K6bdotGkYB52FxPtgvqkay5Y8=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "14109c95f6cf45099fcde137b1b5d180",
+        "symbol": "HBAN",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "HBAN",
+            "strike_price": "17",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"14109c95f6cf45099fcde137b1b5d180\",\"symbol\":\"HBAN\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"HBAN\",\"strike_price\":\"17\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 52e844e8-565a-4842-837a-87203b5465bd
+8683729152 2026-09-06 13:00:08,127 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "52e844e8-565a-4842-837a-87203b5465bd"
+}
+8683729152 2026-09-06 13:00:08,274 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:08Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "5ae557f9-cccf-541b-965f-f32dc2981e4f",
+    "x-signature": "8r6439CsKEITjnmCKVoG8uTuscS0rJYrkfwGcSwbAJQ=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "501",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "d3d1de55b4294b5094fce181c809f1bc",
+        "symbol": "D",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "D",
+            "strike_price": "67.5",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"d3d1de55b4294b5094fce181c809f1bc\",\"symbol\":\"D\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"D\",\"strike_price\":\"67.5\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: d7a54f31-7355-4d7e-8237-b15b26608c23
+8683729152 2026-09-06 13:00:08,275 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "d7a54f31-7355-4d7e-8237-b15b26608c23"
+}
+8683729152 2026-09-06 13:00:08,424 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:08Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "74ca982f-b9c1-5ba4-8f75-9e447f9a56dd",
+    "x-signature": "XVd3S4dpYVCNYszIikoZEgZQ9xktDKREQrjmhCa5Cig=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
     "x-webull-client-source": "sdk",
     "Content-Length": "502",
     "Content-Type": "application/json"
@@ -314,7 +980,7 @@
     "new_orders": [
       {
         "combo_type": "NORMAL",
-        "client_order_id": "8e7d82a2183445bb8ea8bb62eeed3f1d",
+        "client_order_id": "1786b6fc0c544612b12ae05462e0e524",
         "symbol": "HST",
         "instrument_type": "OPTION",
         "option_strategy": "SINGLE",
@@ -342,17 +1008,985 @@
   },
   "_uri_pattern": null,
   "_uri_params": null,
-  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"8e7d82a2183445bb8ea8bb62eeed3f1d\",\"symbol\":\"HST\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"HST\",\"strike_price\":\"23\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"1786b6fc0c544612b12ae05462e0e524\",\"symbol\":\"HST\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"HST\",\"strike_price\":\"23\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
   "_extra_user_agent": {},
   "string_to_sign": "",
   "_request_connect_timeout": null,
   "_request_read_timeout": null,
   "endpoint": "api.sandbox.webull.com",
   "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
-} Response:{'message': 'You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET.', 'error_code': 'OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME, Msg: You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET., RequestID: 46e90330-064b-41fb-b594-5f276a942cab
-8683729152 2026-08-25 16:04:03,309 webull.core.client ERROR get_response exception. {
-  "error_code": "OPENAPI_OPTION_ONLY_SUPPORT_MARKET_IN_CORE_TIME",
-  "error_msg": "You cannot place orders at this moment. Available trading hours are: 9:30 a.m.- 4:00 p.m. ET.",
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 8ab39089-0970-44d2-83be-f673df4e4758
+8683729152 2026-09-06 13:00:08,425 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
   "http_status": 417,
-  "request_id": "46e90330-064b-41fb-b594-5f276a942cab"
+  "request_id": "8ab39089-0970-44d2-83be-f673df4e4758"
 }
+8683729152 2026-09-06 13:00:14,507 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:14Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "8b75d045-ca4d-5a2c-a442-3a672c1a5461",
+    "x-signature": "mHBVaLojkKXcvjuceTvdCDqmqhhyxyHh5vXNc9iV5iU=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "507",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "256db057d6a4444a9df163a89a2ea421",
+        "symbol": "RBLX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RBLX",
+            "strike_price": "40.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"256db057d6a4444a9df163a89a2ea421\",\"symbol\":\"RBLX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RBLX\",\"strike_price\":\"40.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: d3f39882-d373-4959-9365-670ec1d70cf2
+8683729152 2026-09-06 13:00:14,507 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "d3f39882-d373-4959-9365-670ec1d70cf2"
+}
+8683729152 2026-09-06 13:00:14,626 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:14Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "68a5ea1b-582c-5a29-8ebf-9b9a157f4781",
+    "x-signature": "at6B722Az2tD0IM5RvjkMEn6ymaWqssIXwvcqENWGSs=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "6e31b24d83304d749e00b3b2f250f4f6",
+        "symbol": "CCL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "CCL",
+            "strike_price": "23.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"6e31b24d83304d749e00b3b2f250f4f6\",\"symbol\":\"CCL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"CCL\",\"strike_price\":\"23.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: f74d35d1-c47b-4ae6-a583-666a3f5dbf64
+8683729152 2026-09-06 13:00:14,626 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "f74d35d1-c47b-4ae6-a583-666a3f5dbf64"
+}
+8683729152 2026-09-06 13:00:14,747 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:14Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "7d64da39-5cfe-5fc3-b8ed-ebf8120297fc",
+    "x-signature": "fv1R+u05Q6BHwBryGAShBxC/l7HjFW67WAR0J+xUnbE=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "505",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "63d5546cabcb4142b6527e1e4e22cf67",
+        "symbol": "DELL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "DELL",
+            "strike_price": "345",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"63d5546cabcb4142b6527e1e4e22cf67\",\"symbol\":\"DELL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"DELL\",\"strike_price\":\"345\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 0b5f8341-0518-4291-8c97-3226ee8f8796
+8683729152 2026-09-06 13:00:14,749 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "0b5f8341-0518-4291-8c97-3226ee8f8796"
+}
+8683729152 2026-09-06 13:00:14,891 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:14Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "484c6740-6e1c-5eec-8520-ce491df83a5f",
+    "x-signature": "Du4pbz5pS8KHwjpFKrzTolTK9DgM0tR2MLt33YbQDEI=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "506",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "c5b596a32c78423bbd64be72168c67bc",
+        "symbol": "PGR",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PGR",
+            "strike_price": "222.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"c5b596a32c78423bbd64be72168c67bc\",\"symbol\":\"PGR\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PGR\",\"strike_price\":\"222.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 5a839e36-ee48-49e3-bc97-c99fae7d8fc3
+8683729152 2026-09-06 13:00:14,891 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "5a839e36-ee48-49e3-bc97-c99fae7d8fc3"
+}
+8683729152 2026-09-06 13:00:15,021 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:14Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "58b53491-f059-53d2-919d-eac88a7f3bfa",
+    "x-signature": "tCKP46yOw0RWDgKZJXFahP94JR43aaaosXaS0klnFVI=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "9ee54206a4c646c49958a092f9a240e0",
+        "symbol": "VRT",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "VRT",
+            "strike_price": "275",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"9ee54206a4c646c49958a092f9a240e0\",\"symbol\":\"VRT\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"VRT\",\"strike_price\":\"275\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: cea07fea-2dbd-4e03-9497-3b0344fb1017
+8683729152 2026-09-06 13:00:15,022 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "cea07fea-2dbd-4e03-9497-3b0344fb1017"
+}
+8683729152 2026-09-06 13:00:15,173 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:15Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "aa940c76-9e0f-5d35-8af0-d2a2bf00edfc",
+    "x-signature": "HLz8Z2MQhM2e/Kt4zyKThur6ciJZNJ6MzX4xr7bQufc=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "505",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "ba22bfeac5a44eda99dd7276be6e2949",
+        "symbol": "TSM",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "TSM",
+            "strike_price": "397.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"ba22bfeac5a44eda99dd7276be6e2949\",\"symbol\":\"TSM\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"TSM\",\"strike_price\":\"397.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 4c767ab4-7901-42d4-a0a0-95a0d61ec22b
+8683729152 2026-09-06 13:00:15,174 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "4c767ab4-7901-42d4-a0a0-95a0d61ec22b"
+}
+8683729152 2026-09-06 13:00:16,294 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:15Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "e15c970e-b9b3-54e9-80da-2db080795045",
+    "x-signature": "Tm3rg77IzEg71D4S5Y/iZISaUzaCkkL/7UUwZAXQcYs=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "503",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "2aa9aff8b55d426b8d395e9b9fb50df8",
+        "symbol": "RKT",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RKT",
+            "strike_price": "14",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"2aa9aff8b55d426b8d395e9b9fb50df8\",\"symbol\":\"RKT\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RKT\",\"strike_price\":\"14\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: e214bf1f-0d5e-4a01-81d7-9ed868dffb87
+8683729152 2026-09-06 13:00:16,295 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "e214bf1f-0d5e-4a01-81d7-9ed868dffb87"
+}
+8683729152 2026-09-06 13:00:16,412 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:16Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "08b8bc00-0c13-5081-95b2-5bc9ba6eb1de",
+    "x-signature": "w90zD6Fcnu1E/cWHTGJLp5Vh7HScrIEk8Mi/zvDr2wI=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "d7c53aa444ca46b7b6398c1431580d4e",
+        "symbol": "HBAN",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "HBAN",
+            "strike_price": "17",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"d7c53aa444ca46b7b6398c1431580d4e\",\"symbol\":\"HBAN\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"HBAN\",\"strike_price\":\"17\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: a699fd49-88da-48d1-a3b2-72d70a9f65cf
+8683729152 2026-09-06 13:00:16,413 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "a699fd49-88da-48d1-a3b2-72d70a9f65cf"
+}
+8683729152 2026-09-06 13:00:16,555 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:16Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "74251791-9915-5318-ba18-f004aefcda43",
+    "x-signature": "DFrsHsU6G4F9Dn5cPO7MYHhO189CWv8wBU6XoqYFDmA=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "501",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "1f1860e35e2540228552c776b43d7a56",
+        "symbol": "D",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "D",
+            "strike_price": "67.5",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"1f1860e35e2540228552c776b43d7a56\",\"symbol\":\"D\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"D\",\"strike_price\":\"67.5\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 12201934-2236-4668-8afe-87bda0111a9e
+8683729152 2026-09-06 13:00:16,556 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "12201934-2236-4668-8afe-87bda0111a9e"
+}
+8683729152 2026-09-06 13:00:16,709 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:00:16Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "53474285-f656-5ea0-a5a7-2eb1295f7b34",
+    "x-signature": "WmDMMN5uDA+tk1exDDKxvR0BAlksItj9YbElun19p+w=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "502",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "736b91c663664e259bf026592f81e513",
+        "symbol": "HST",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "HST",
+            "strike_price": "23",
+            "option_expire_date": "2026-09-18",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"736b91c663664e259bf026592f81e513\",\"symbol\":\"HST\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"HST\",\"strike_price\":\"23\",\"option_expire_date\":\"2026-09-18\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: b34bf433-3ff7-4615-8a8c-878f59d994c1
+8683729152 2026-09-06 13:00:16,710 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "b34bf433-3ff7-4615-8a8c-878f59d994c1"
+}
+8683729152 2026-09-06 13:03:51,718 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-09-06 13:03:58,745 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:03:58Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "28d9a5d1-f6bc-5aa1-9191-ffee3bacc522",
+    "x-signature": "tiO8dlyYQP3yANItMC1+7CT/4HOhCwalGi476e7heuw=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "507",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "9c7ecdd616264f26bf1cb824cfbc42a4",
+        "symbol": "RBLX",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "RBLX",
+            "strike_price": "40.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"9c7ecdd616264f26bf1cb824cfbc42a4\",\"symbol\":\"RBLX\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"RBLX\",\"strike_price\":\"40.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: f8b0aa28-ce7a-42b5-81eb-22d36b45d536
+8683729152 2026-09-06 13:03:58,746 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "f8b0aa28-ce7a-42b5-81eb-22d36b45d536"
+}
+8683729152 2026-09-06 13:03:58,877 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:03:58Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "8d9388ff-dfce-581d-884a-d8cf71abb5c2",
+    "x-signature": "v5HE0pSz57ZMF8iG3Y6mtQ5iu1UCtitPNKJuzGFj8z8=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "eb88267a43944799899c1c205e05f08d",
+        "symbol": "CCL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "CCL",
+            "strike_price": "23.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"eb88267a43944799899c1c205e05f08d\",\"symbol\":\"CCL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"CCL\",\"strike_price\":\"23.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 09ac1007-4267-4258-a88f-683445e538be
+8683729152 2026-09-06 13:03:58,878 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "09ac1007-4267-4258-a88f-683445e538be"
+}
+8683729152 2026-09-06 13:03:59,007 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:03:58Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "f9831f43-5f93-53f5-bd12-50d4e2e118a4",
+    "x-signature": "uMtc5qHoii77kgJx404LseND7efW2YD3qgo9yBUMazI=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "505",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "b4f9ef7729f14ba79e1c851c22776b01",
+        "symbol": "DELL",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "DELL",
+            "strike_price": "345",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "PUT",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"b4f9ef7729f14ba79e1c851c22776b01\",\"symbol\":\"DELL\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"DELL\",\"strike_price\":\"345\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"PUT\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: 7322b639-537d-476f-9821-254f9ed704f9
+8683729152 2026-09-06 13:03:59,008 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "7322b639-537d-476f-9821-254f9ed704f9"
+}
+8683729152 2026-09-06 13:03:59,148 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-06T17:03:59Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "dab3ff81-ddf3-5e3e-aecd-401a467a4214",
+    "x-signature": "5kQvyBakwgXpZpsMHmBVqRdMAnhLEqVLWmc5Egd2L8E=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "506",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "c47eec08146a4433bdee684814c70d8f",
+        "symbol": "PGR",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "0.05",
+        "quantity": "1",
+        "side": "SELL",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "SELL",
+            "quantity": "1",
+            "symbol": "PGR",
+            "strike_price": "222.5",
+            "option_expire_date": "2026-09-04",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"c47eec08146a4433bdee684814c70d8f\",\"symbol\":\"PGR\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"0.05\",\"quantity\":\"1\",\"side\":\"SELL\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"SELL\",\"quantity\":\"1\",\"symbol\":\"PGR\",\"strike_price\":\"222.5\",\"option_expire_date\":\"2026-09-04\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.', 'error_code': 'OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS'} ServerException:HTTP Status: 417, Code: OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS, Msg: Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days., RequestID: be34f50f-fcc0-492f-8211-70b97f97613a
+8683729152 2026-09-06 13:03:59,149 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_OPTION_CAN_NOT_TRADING_FOR_NON_TRADING_HOURS",
+  "error_msg": "Placing option order is not supported right now. Please try again in the following time period: 8:00 a.m. - 16:00 p.m. ET on trading days.",
+  "http_status": 417,
+  "request_id": "be34f50f-fcc0-492f-8211-70b97f97613a"
+}
+8683729152 2026-09-06 13:40:19,783 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False

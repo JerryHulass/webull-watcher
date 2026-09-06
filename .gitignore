@@ -2,3 +2,19 @@
 venv/
 __pycache__/
 webull_trades_state.json
+
+# Credentials & Secrets
+.env
+*.env
+
+# Python Virtual Environment
+venv/
+ENV/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Mac OS metadata
+.DS_Store

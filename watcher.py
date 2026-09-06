@@ -6,6 +6,9 @@ import math
 from datetime import datetime, timezone
 from dotenv import load_dotenv
 
+import webull
+webull.__version__ = "1.0.0"
+
 # Webull OpenAPI SDK Imports
 from webull.core.client import ApiClient
 from webull.trade.trade_client import TradeClient
