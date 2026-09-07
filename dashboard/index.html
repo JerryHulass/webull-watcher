@@ -2,70 +2,172 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0DTE Algo Dashboard</title>
-    <!-- Use TailwindCSS for beautiful, fast styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Supabase JS -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body class="bg-gray-900 text-white p-8">
+<body class="bg-gray-900 text-gray-100 min-h-screen font-sans">
 
-    <h1 class="text-3xl font-bold mb-8 text-blue-400">⚡ 0DTE Trading Bot Live Dashboard</h1>
-
-    <div class="grid grid-cols-2 gap-8">
-        <!-- Live Signals Panel -->
-        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h2 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2">📡 Live Discord Signals</h2>
-            <ul id="signals-list" class="space-y-3">
-                <li class="text-gray-400">Waiting for signals...</li>
-            </ul>
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="flex flex-col items-center justify-center min-h-screen p-4">
+        <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700 w-full max-w-md text-center">
+            <h2 class="text-2xl font-bold text-blue-400 mb-2">Restricted Access</h2>
+            <p class="text-gray-400 text-sm mb-6">Enter PIN to access trading telemetry.</p>
+            
+            <input type="password" id="pin-input" class="w-full bg-gray-900 text-white border border-gray-700 rounded p-3 mb-4 text-center tracking-widest focus:outline-none focus:border-blue-500" placeholder="••••">
+            
+            <button onclick="checkPin()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded transition-colors">
+                Unlock Dashboard
+            </button>
+            
+            <p id="error-msg" class="text-red-400 text-sm mt-4 hidden">Incorrect PIN.</p>
         </div>
+    </div>
 
-        <!-- Live Trades Panel -->
-        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h2 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2">🛒 Live Executions</h2>
-            <ul id="trades-list" class="space-y-3">
-                <li class="text-gray-400">Waiting for bot to execute trades...</li>
-            </ul>
+    <!-- MAIN DASHBOARD (HIDDEN BY DEFAULT) -->
+    <div id="main-dashboard" class="hidden p-4 md:p-8">
+        <header class="flex items-center justify-between mb-8 pb-4 border-b border-gray-800">
+            <div>
+                <h1 class="text-3xl font-bold text-blue-400">⚡ 0DTE Trading Bot Live</h1>
+                <p class="text-sm text-gray-400 mt-1">Real-time signal and execution telemetry</p>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span class="text-sm text-green-400 font-medium" id="connection-status">Connecting to Supabase...</span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Live Signals Panel -->
+            <div class="bg-gray-800 rounded-xl shadow-2xl border border-gray-700 overflow-hidden flex flex-col h-[700px]">
+                <div class="bg-gray-800/80 px-6 py-4 border-b border-gray-700 flex justify-between items-center">
+                    <h2 class="text-xl font-bold text-gray-100">📡 Live Discord Signals</h2>
+                    <span class="text-xs font-mono bg-gray-700 text-gray-300 px-2 py-1 rounded">table: signals</span>
+                </div>
+                <div class="p-6 overflow-y-auto flex-grow">
+                    <ul id="signals-list" class="space-y-3">
+                        <li class="text-gray-500 italic text-sm text-center mt-10">Awaiting incoming signals...</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Live Trades Panel -->
+            <div class="bg-gray-800 rounded-xl shadow-2xl border border-gray-700 overflow-hidden flex flex-col h-[700px]">
+                <div class="bg-gray-800/80 px-6 py-4 border-b border-gray-700 flex justify-between items-center">
+                    <h2 class="text-xl font-bold text-gray-100">🛒 Live Executions</h2>
+                    <span class="text-xs font-mono bg-gray-700 text-gray-300 px-2 py-1 rounded">table: trades</span>
+                </div>
+                <div class="p-6 overflow-y-auto flex-grow">
+                    <ul id="trades-list" class="space-y-3">
+                        <li class="text-gray-500 italic text-sm text-center mt-10">Awaiting trade executions...</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Initialize Supabase Client
-        const SUPABASE_URL = 'https://szyscayudikddqcqmreq.supabase.co/rest/v1/';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6eXNjYXl1ZGlrZGRxY3FtcmVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3MTMzNDUsImV4cCI6MjEwNDI4OTM0NX0.vpUMNg44alCpus-66SEaxHtbW0dOjOspAEqAEJgR500';
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        // --- 1. SECURITY CONFIGURATION ---
+        const SECRET_PIN = "0DTE"; 
 
-        // Helper function to add items to the UI
-        function prependItem(listId, htmlContent) {
-            const list = document.getElementById(listId);
-            // Remove the "Waiting..." text if it's the first item
-            if (list.innerHTML.includes('Waiting')) list.innerHTML = ''; 
-            
-            const li = document.createElement('li');
-            li.className = "bg-gray-700 p-3 rounded text-sm";
-            li.innerHTML = htmlContent;
-            list.prepend(li);
+        function checkPin() {
+            const input = document.getElementById('pin-input').value;
+            if (input === SECRET_PIN) {
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('main-dashboard').classList.remove('hidden');
+                
+                // Only initialize the database connection AFTER successful login
+                initSupabase(); 
+            } else {
+                document.getElementById('error-msg').classList.remove('hidden');
+                document.getElementById('pin-input').value = '';
+            }
         }
 
-        // Subscribe to real-time inserts on the 'signals' table
-        supabase.channel('signals-channel')
-            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'signals' }, payload => {
-                const data = payload.new;
-                const time = new Date(data.created_at).toLocaleTimeString();
-                prependItem('signals-list', `<span class="text-blue-400">[${time}]</span> <b>${data.ticker} ${data.option_type}</b> <br><span class="text-xs text-gray-400">${data.raw_text}</span>`);
-            }).subscribe();
+        // Allow pressing "Enter" to submit PIN
+        document.getElementById('pin-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') checkPin();
+        });
 
-        // Subscribe to real-time inserts on the 'trades' table
-        supabase.channel('trades-channel')
-            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'trades' }, payload => {
-                const data = payload.new;
-                const time = new Date(data.created_at).toLocaleTimeString();
-                const color = data.action === 'BUY' ? 'text-green-400' : 'text-red-400';
-                const pnl = data.action === 'SELL' ? `| PnL: <b>${data.pnl_pct}%</b>` : '';
+        // --- 2. DATABASE LOGIC ---
+        function initSupabase() {
+            const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
+            const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
+            const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+            function prependItem(listId, htmlContent) {
+                const list = document.getElementById(listId);
+                if (list.innerHTML.includes('Awaiting')) list.innerHTML = ''; 
                 
-                prependItem('trades-list', `<span class="text-blue-400">[${time}]</span> <b class="${color}">${data.action}</b> ${data.qty}x ${data.ticker} @ $${data.price} <br><span class="text-xs text-gray-400">Reason: ${data.reason} ${pnl}</span>`);
-            }).subscribe();
+                const li = document.createElement('li');
+                li.className = "bg-gray-750 border border-gray-700 p-4 rounded-lg shadow-sm hover:border-gray-600 transition-colors opacity-0 transform translate-y-[-10px]";
+                li.innerHTML = htmlContent;
+                list.prepend(li);
+                
+                setTimeout(() => {
+                    li.classList.remove('opacity-0', 'translate-y-[-10px]');
+                    li.classList.add('opacity-100', 'translate-y-0', 'duration-300');
+                }, 50);
+
+                if (list.children.length > 50) list.removeChild(list.lastChild);
+            }
+            
+            // Subscriptions
+            supabase.channel('public:signals')
+                .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'signals' }, payload => {
+                    const data = payload.new;
+                    const time = new Date(data.created_at).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second:'2-digit' });
+                    const content = `
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs font-mono text-blue-400 mr-2">[${time}]</span>
+                                <span class="font-bold text-white text-lg">${data.ticker} <span class="text-purple-400">${data.option_type}</span></span>
+                            </div>
+                            <span class="bg-blue-900/50 text-blue-300 text-xs px-2 py-1 rounded-full border border-blue-800">DIAMOND</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2 font-mono bg-gray-900 p-2 rounded">${data.raw_text}</p>
+                    `;
+                    prependItem('signals-list', content);
+                })
+                .subscribe((status) => {
+                    if (status === 'SUBSCRIBED') {
+                        document.getElementById('connection-status').innerText = 'Connected & Listening';
+                    }
+                });
+
+            supabase.channel('public:trades')
+                .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'trades' }, payload => {
+                    const data = payload.new;
+                    const time = new Date(data.created_at).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second:'2-digit' });
+                    const isBuy = data.action === 'BUY';
+                    const actionColor = isBuy ? 'text-green-400' : 'text-red-400';
+                    const badgeColor = isBuy ? 'bg-green-900/50 text-green-300 border-green-800' : 'bg-red-900/50 text-red-300 border-red-800';
+                    
+                    let pnlMarkup = '';
+                    if (!isBuy) {
+                        const pnlColor = data.pnl_pct > 0 ? 'text-green-400' : 'text-red-400';
+                        pnlMarkup = `<div class="mt-2 text-sm font-medium">Realized PnL: <span class="${pnlColor}">${data.pnl_pct}%</span></div>`;
+                    }
+
+                    const content = `
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs font-mono text-blue-400 mr-2">[${time}]</span>
+                                <span class="font-bold text-white text-lg">${data.qty}x ${data.ticker} @ $${data.price}</span>
+                            </div>
+                            <span class="${badgeColor} text-xs font-bold px-2 py-1 rounded border">${data.action}</span>
+                        </div>
+                        <p class="text-sm text-gray-300 mt-2">Trigger: <span class="text-gray-400">${data.reason}</span></p>
+                        ${pnlMarkup}
+                    `;
+                    prependItem('trades-list', content);
+                })
+                .subscribe();
+        }
     </script>
 </body>
 </html>
