@@ -2,7 +2,7 @@ import mss
 import mss.tools
 
 # Adjust these numbers until the saved image perfectly frames your Discord alerts
-monitor = {"top": 120, "left": 50, "width": 1200, "height": 750}
+monitor = {"top": 120, "left": 50, "width": 1200, "height": 1000}
 
 with mss.mss() as sct:
     screenshot = sct.grab(monitor)

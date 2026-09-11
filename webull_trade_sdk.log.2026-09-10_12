@@ -1,0 +1,70 @@
+8683729152 2026-09-10 12:17:31,670 webull.core.http.initializer.client_initializer INFO _check_token_enable result is False
+8683729152 2026-09-10 12:45:17,184 webull.core.client ERROR ServerException occurred. Host:api.sandbox.webull.com SDK-Version:2.0.17 Request:{
+  "_version": "v2",
+  "_action_name": "/openapi/trade/order/place",
+  "_protocol_type": "https",
+  "_accept_format": "JSON",
+  "_params": {},
+  "_method": "POST",
+  "_header": {
+    "x-version": "v2",
+    "category": "US_OPTION",
+    "Accept-Encoding": "gzip",
+    "x-app-key": "us.edfc0fdac1165fcc41bd8b58c119ffde",
+    "x-timestamp": "2026-09-10T16:45:17Z",
+    "x-signature-version": "1.0",
+    "x-signature-algorithm": "HMAC-SHA256",
+    "x-signature-nonce": "c1f09f19-2621-5d51-82f6-f52f915dc473",
+    "x-signature": "6Ru7zf5gIbkvV0uqfVul0dvwa9JYVUcchVoZCiyHEkg=",
+    "User-Agent": "WebullApiSDK (Darwin 25.3.0;arm64) Python/3.9.6 Core/1.0.0 python-requests/2.32.5",
+    "x-webull-client-source": "sdk",
+    "Content-Length": "504",
+    "Content-Type": "application/json"
+  },
+  "_body_params": {
+    "account_id": "LFHKQT9JEDL8E7R2FFKU3I0OVB",
+    "new_orders": [
+      {
+        "combo_type": "NORMAL",
+        "client_order_id": "a00dc4137dec447487b661b85d1fe114",
+        "symbol": "IWM",
+        "instrument_type": "OPTION",
+        "option_strategy": "SINGLE",
+        "market": "US",
+        "order_type": "LIMIT",
+        "limit_price": "1.00",
+        "quantity": "1",
+        "side": "BUY",
+        "time_in_force": "DAY",
+        "entrust_type": "QTY",
+        "legs": [
+          {
+            "side": "BUY",
+            "quantity": "1",
+            "symbol": "IWM",
+            "strike_price": "480.0",
+            "option_expire_date": "2026-09-10",
+            "instrument_type": "OPTION",
+            "option_type": "CALL",
+            "market": "US"
+          }
+        ]
+      }
+    ]
+  },
+  "_uri_pattern": null,
+  "_uri_params": null,
+  "_content": "{\"account_id\":\"LFHKQT9JEDL8E7R2FFKU3I0OVB\",\"new_orders\":[{\"combo_type\":\"NORMAL\",\"client_order_id\":\"a00dc4137dec447487b661b85d1fe114\",\"symbol\":\"IWM\",\"instrument_type\":\"OPTION\",\"option_strategy\":\"SINGLE\",\"market\":\"US\",\"order_type\":\"LIMIT\",\"limit_price\":\"1.00\",\"quantity\":\"1\",\"side\":\"BUY\",\"time_in_force\":\"DAY\",\"entrust_type\":\"QTY\",\"legs\":[{\"side\":\"BUY\",\"quantity\":\"1\",\"symbol\":\"IWM\",\"strike_price\":\"480.0\",\"option_expire_date\":\"2026-09-10\",\"instrument_type\":\"OPTION\",\"option_type\":\"CALL\",\"market\":\"US\"}]}]}",
+  "_extra_user_agent": {},
+  "string_to_sign": "",
+  "_request_connect_timeout": null,
+  "_request_read_timeout": null,
+  "endpoint": "api.sandbox.webull.com",
+  "_signer_spec": "<module 'webull.core.auth.algorithm.sha_hmac1' from '/Users/jerry/Documents/webull-watcher/venv/lib/python3.9/site-packages/webull/core/auth/algorithm/sha_hmac1.py'>"
+} Response:{'message': 'Parameter error, invalid market,symbol,option_type,strike_price,option_expire_date, value: US,IWM,CALL,480.0,2026-09-10', 'error_code': 'OPENAPI_PARAM_ERR'} ServerException:HTTP Status: 417, Code: OPENAPI_PARAM_ERR, Msg: Parameter error, invalid market,symbol,option_type,strike_price,option_expire_date, value: US,IWM,CALL,480.0,2026-09-10, RequestID: 660e85ae-aa2d-47a2-83ad-7036facb1ed2
+8683729152 2026-09-10 12:45:17,185 webull.core.client ERROR get_response exception. {
+  "error_code": "OPENAPI_PARAM_ERR",
+  "error_msg": "Parameter error, invalid market,symbol,option_type,strike_price,option_expire_date, value: US,IWM,CALL,480.0,2026-09-10",
+  "http_status": 417,
+  "request_id": "660e85ae-aa2d-47a2-83ad-7036facb1ed2"
+}
