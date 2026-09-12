@@ -7,6 +7,8 @@ import mss
 import pytesseract
 import cv2
 import numpy as np
+import pandas as pd
+import yfinance as yf
 from dotenv import load_dotenv
 
 # --- IMPORT YOUR EXISTING WEBULL FUNCTIONS ---
@@ -48,18 +50,47 @@ def log_trade_to_db(ticker, action, qty, price, reason, pnl_pct=0.0):
         print(f"⚠️ DB Error (Trade logged locally): {e}")
 
 
+def log_option_execution_to_db(trade_data: dict):
+    if not supabase: return
+    try:
+        payload = {
+            "signal_time": str(trade_data.get("signal_time")),
+            "ticker": trade_data.get("ticker"),
+            "contract_symbol": trade_data.get("contract_symbol", "UNKNOWN"),
+            "option_type": trade_data.get("option_type"),
+            "strike": trade_data.get("strike", 0),
+            "expiration": str(trade_data.get("expiration", "2026-01-01")),
+            "entry_price": trade_data.get("entry_price"),
+            "underlying_price": trade_data.get("underlying_price", 0.0),
+            "delta": trade_data.get("delta", 0.0),
+            "gamma": trade_data.get("gamma", 0.0),
+            "theta": trade_data.get("theta", 0.0),
+            "vega": trade_data.get("vega", 0.0),
+            "implied_volatility": trade_data.get("iv", 0.0),
+            "status": trade_data.get("status", "OPEN")
+        }
+        supabase.table("option_executions").insert(payload).execute()
+    except Exception as e:
+        print(f"⚠️ Supabase Option Logging Error: {e}")
+
+
 # --- CONFIGURATION ---
 ALLOWED_TICKERS = ["SPY", "QQQ", "IWM"]
 TARGET_PREMIUM_MIN = 0.80
 TARGET_PREMIUM_MAX = 1.10
+EXECUTION_DELAY_SECONDS = 60  
 
-# 20-minute window for Discord's UI timestamp
-MAX_SIGNAL_AGE_SECONDS = 1200
+# Dynamic Trailing Stop Logic (Percentages based on Webull's PnL reporting)
+HARD_STOP_PCT = -45.0   # -45% Hard stop loss
+ACTIVATION_PCT = 25.0   # +25% Profit required to activate the trail
+TRAIL_PCT = 15.0        # 15% Trailing distance from peak
+
+# Tracks processed signal fingerprints to prevent duplicate executions
 PROCESSED_SIGNAL_IDS = set()
 
 
 # --- DISCORD OCR ENGINE ---
-def watch_discord_screen(last_processed_text):
+def watch_discord_screen(last_processed_text, is_startup):
     with mss.MSS() as sct:
         monitor = {"top": 470, "left": 100, "width": 750, "height": 500}
         img = np.array(sct.grab(monitor))
@@ -71,110 +102,87 @@ def watch_discord_screen(last_processed_text):
         if text == last_processed_text or text.strip() == "":
             return None, None, text
 
-        if "DIAMOND" in text:
-            # Split screen text by the bot's name to isolate Discord's UI timestamps
-            blocks = text.split("GGAIZ")
-            if len(blocks) <= 1:
-                blocks = [text]
+        pattern = r'DIAMOND[\s\S]{1,60}?(LONG|SHORT)\s+(SPY|QQQ|IWM)\s+AT\s+(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})'
+        matches = list(re.finditer(pattern, text))
 
-            # REVERSED: Scan from the bottom (newest) to top
-            for block in reversed(blocks):
-                # Safely ignore old Rough alerts
-                if "DIAMOND" not in block or "ROUGH" in block:
-                    continue
-                
-                # Explicitly block alerts from previous days shown in the UI
-                if "YESTERDAY" in block or "/" in block:
-                    continue
+        newest_ticker = None
+        newest_opt_type = None
 
-                # Isolate Discord's native UI timestamp (e.g., 11:30 AM or 11:30AM)
-                ui_time_match = re.search(r'(\d{1,2}:\d{2}\s*[APM]+)', block)
-                if not ui_time_match:
-                    continue
+        for match in matches:
+            direction = match.group(1)
+            ticker = match.group(2)
+            raw_dt_str = match.group(3)
 
-                # Clean the string to HH:MMAM for flawless datetime parsing
-                raw_ui_time = ui_time_match.group(1).replace(" ", "").strip()
-                
-                try:
-                    now = datetime.now()
-                    # Parse the UI time and fuse it with today's date
-                    parsed_time = datetime.strptime(raw_ui_time, "%I:%M%p").time()
-                    parsed_dt = datetime.combine(now.date(), parsed_time)
-                    
-                    age_seconds = (now - parsed_dt).total_seconds()
+            opt_type = "CALL" if direction == "LONG" else "PUT"
+            signal_id = f"{ticker}_{opt_type}_{raw_dt_str}"
 
-                    # Clock skew catch (if the OCR misread AM as PM, age will be massively negative)
-                    if age_seconds < -60:
-                        continue
+            if signal_id not in PROCESSED_SIGNAL_IDS:
+                PROCESSED_SIGNAL_IDS.add(signal_id)
+                if is_startup:
+                    print(f"🧹 [STARTUP WARMUP]: Memorized pre-existing signal -> {ticker} {opt_type} at {raw_dt_str}")
+                else:
+                    print(f"\n🔔 [FRESH LIVE SIGNAL DETECTED]: {ticker} {opt_type} at {raw_dt_str}")
+                    newest_ticker = ticker
+                    newest_opt_type = opt_type
 
-                    # Reject if the Discord UI timestamp is older than 20 minutes
-                    if age_seconds > MAX_SIGNAL_AGE_SECONDS:
-                        print(f"⏳ [STALE UI TIME IGNORED]: Discord says {raw_ui_time} ({age_seconds:.0f}s old).")
-                        continue
-
-                except Exception as e:
-                    continue
-
-                # Extract Ticker & Direction
-                detected_ticker = None
-                detected_opt_type = None
-
-                for ticker in ALLOWED_TICKERS:
-                    if f" {ticker} " in block or f"{ticker} AT" in block:
-                        detected_ticker = ticker
-                        detected_opt_type = "CALL" if "LONG" in block else "PUT"
-                        break
-
-                if detected_ticker and detected_opt_type:
-                    # Fingerprint using the Discord UI time instead of the candle close time
-                    signal_id = f"{detected_ticker}_{detected_opt_type}_{raw_ui_time}"
-
-                    if signal_id in PROCESSED_SIGNAL_IDS:
-                        continue
-
-                    PROCESSED_SIGNAL_IDS.add(signal_id)
-                    print(f"\n💎 [FRESH UI SIGNAL ACCEPTED]: {detected_ticker} {detected_opt_type} posted at {raw_ui_time}")
-                    return detected_ticker, detected_opt_type, text
-
-        return None, None, text
+        return newest_ticker, newest_opt_type, text
 
 
 # --- BUY EXECUTION ENGINE ---
 def get_target_option_contract(api_client, ticker, opt_type):
     try:
         today_str = datetime.now().strftime("%Y-%m-%d")
+        stock = yf.Ticker(ticker)
         
-        if not hasattr(api_client, "get_options"):
-            print(f"⚠️ [MARKET DATA NOTICE]: Webull client missing get_options method. Returning sandbox contract.")
-            return {"strike_price": "550.0" if ticker == "SPY" else "480.0", "option_expire_date": today_str, "ask_price": "1.00"}
-
-        response = api_client.get_options(stock=ticker, expireDate=today_str)
-        if not response or not isinstance(response, list):
+        if today_str not in stock.options:
+            print(f"⚠️ [MARKET DATA]: No 0DTE options chain found for {ticker} on {today_str}.")
             return None
-
-        best_contract = None
-        smallest_diff = float('inf')
-
-        for contract in response:
-            if contract.get("direction", "").upper() != opt_type.upper():
-                continue
-                
-            ask_price = float(contract.get("askList", [0])[0]) if contract.get("askList") else 0.0
             
-            if TARGET_PREMIUM_MIN <= ask_price <= TARGET_PREMIUM_MAX:
-                diff = abs(ask_price - 1.00)
-                if diff < smallest_diff:
-                    smallest_diff = diff
-                    best_contract = contract
-                    
-        if best_contract:
-            return {"strike_price": str(best_contract["strikePrice"]), "option_expire_date": today_str, "ask_price": str(best_contract["askList"][0])}
+        chain = stock.option_chain(today_str)
+        options_df = chain.calls if opt_type.upper() == "CALL" else chain.puts
+        
+        valid_options = options_df[(options_df['ask'] >= TARGET_PREMIUM_MIN) & (options_df['ask'] <= TARGET_PREMIUM_MAX)].copy()
+        
+        if valid_options.empty:
+            print(f"❌ No {ticker} {opt_type} contracts found between ${TARGET_PREMIUM_MIN} and ${TARGET_PREMIUM_MAX}.")
+            return None
             
-        return None
+        valid_options['diff'] = abs(valid_options['ask'] - 1.00)
+        best_contract = valid_options.loc[valid_options['diff'].idxmin()]
+        
+        target_strike = best_contract['strike']
+        target_ask = best_contract['ask']
+        
+        print(f"📊 [MARKET DATA]: Found {ticker} {opt_type} at ${target_ask:.2f} (Strike: {target_strike}).")
+
+        return {
+            "strike_price": f"{target_strike:.1f}",
+            "option_expire_date": today_str,
+            "ask_price": float(target_ask),
+            "iv": float(best_contract.get('impliedVolatility', 0.0)),
+            "contractSymbol": str(best_contract.get('contractSymbol', 'UNKNOWN'))
+        }
 
     except Exception as e:
         print(f"❌ Option Chain Fetch Error: {e}")
         return None
+
+
+def execute_raw_buy(trade_client, account_id, ticker, strike, opt_type, expire_date, limit_price):
+    client_order_id = uuid.uuid4().hex
+    new_orders = [{
+        "combo_type": "NORMAL", "client_order_id": client_order_id,
+        "symbol": ticker, "instrument_type": "OPTION", "option_strategy": "SINGLE",
+        "market": "US", "order_type": "LIMIT", "limit_price": f"{limit_price:.2f}",
+        "quantity": "1", "side": "BUY", "time_in_force": "DAY", "entrust_type": "QTY",
+        "legs": [{
+            "side": "BUY", "quantity": "1", "symbol": ticker,
+            "strike_price": str(strike), "option_expire_date": expire_date,
+            "instrument_type": "OPTION", "option_type": opt_type, "market": "US"
+        }]
+    }]
+    trade_client.order_v3.place_order(account_id, new_orders)
+    return client_order_id
 
 
 def execute_buy_target_premium(api_client, trade_client, account_id, ticker, opt_type):
@@ -183,51 +191,130 @@ def execute_buy_target_premium(api_client, trade_client, account_id, ticker, opt
 
     if not target_contract:
         print("❌ [BUY CANCELLED]: Could not resolve contract in target premium range.")
-        return False
+        return None
 
-    strike, expire_date, limit_price = target_contract["strike_price"], target_contract["option_expire_date"], target_contract["ask_price"]
-    client_order_id = uuid.uuid4().hex
+    strike = target_contract["strike_price"]
+    expire_date = target_contract["option_expire_date"]
     
-    new_orders = [{
-        "combo_type": "NORMAL", "client_order_id": client_order_id,
-        "symbol": ticker, "instrument_type": "OPTION", "option_strategy": "SINGLE",
-        "market": "US", "order_type": "LIMIT", "limit_price": str(limit_price),
-        "quantity": "1", "side": "BUY", "time_in_force": "DAY", "entrust_type": "QTY",
-        "legs": [{"side": "BUY", "quantity": "1", "symbol": ticker, "strike_price": str(strike), "option_expire_date": expire_date, "instrument_type": "OPTION", "option_type": opt_type, "market": "US"}]
-    }]
+    entry_limit_price = min(target_contract["ask_price"], TARGET_PREMIUM_MAX)
 
-    print(f"🛒 EXECUTING BUY: {ticker} {strike} {opt_type} at ${limit_price}")
+    print(f"🛒 EXECUTING BUY: {ticker} {strike} {opt_type} at Limit ${entry_limit_price:.2f}")
     try:
-        response = trade_client.order_v3.place_order(account_id, new_orders)
-        print(f"✅ Buy Order Submitted! Order ID: {response}")
-        log_trade_to_db(ticker, "BUY", 1, float(limit_price), "Target Premium Entry", 0.0)
-        return True
+        cid = execute_raw_buy(trade_client, account_id, ticker, strike, opt_type, expire_date, entry_limit_price)
+        print(f"✅ Buy Order Submitted! Order ID: {cid}")
+        log_trade_to_db(ticker, "BUY", 1, float(entry_limit_price), "Initial Premium Entry", 0.0)
+        
+        return {
+            "client_order_id": cid,
+            "ticker": ticker,
+            "opt_type": opt_type,
+            "strike": strike,
+            "expire_date": expire_date,
+            "limit_price": float(entry_limit_price),
+            "iv": target_contract["iv"],
+            "contractSymbol": target_contract["contractSymbol"],
+            "time": time.time(),
+            "retries": 0
+        }
     except Exception as e:
         print(f"❌ Error placing buy order: {e}")
-        return False
+        return None
 
 
 # --- 0DTE SELL & POSITION MANAGEMENT ENGINE ---
 def run_0dte_watcher(api_client, trade_client, active_account_id):
     state = {}
     last_processed_text = ""
+    is_startup = True
+    pending_buy_signal = None  
+    pending_buy_order = None   
+    
     print(f"🚀 0DTE Watcher running. Tracking: {ALLOWED_TICKERS}")
 
     while True:
         try:
-            ticker_signal, opt_type_signal, current_text = watch_discord_screen(last_processed_text)
+            ticker_signal, opt_type_signal, current_text = watch_discord_screen(last_processed_text, is_startup)
 
-            if ticker_signal:
-                print(f"\n💎 [EXECUTING LIVE SIGNAL]: {ticker_signal} {opt_type_signal}")
+            if is_startup:
+                is_startup = False
+                last_processed_text = current_text
+                time.sleep(5)
+                continue
+
+            # 1. Queue new signals with delay
+            if ticker_signal and not pending_buy_order:
+                print(f"\n⏳ [SIGNAL QUEUED]: {ticker_signal} {opt_type_signal}. Waiting {EXECUTION_DELAY_SECONDS} seconds before executing...")
                 log_signal_to_db(ticker_signal, opt_type_signal, current_text)
-                execute_buy_target_premium(api_client, trade_client, active_account_id, ticker_signal, opt_type_signal)
+                
+                pending_buy_signal = {
+                    "ticker": ticker_signal,
+                    "opt_type": opt_type_signal,
+                    "execute_at": time.time() + EXECUTION_DELAY_SECONDS
+                }
                 last_processed_text = current_text
             elif current_text != last_processed_text:
                 last_processed_text = current_text
 
-            positions = get_open_positions(trade_client, active_account_id)
+            # 2. Execute queued signals
+            if pending_buy_signal and time.time() >= pending_buy_signal["execute_at"]:
+                print(f"\n⏰ [DELAY COMPLETE]: Executing queued {pending_buy_signal['ticker']} signal...")
+                pending_buy_order = execute_buy_target_premium(api_client, trade_client, active_account_id, pending_buy_signal["ticker"], pending_buy_signal["opt_type"])
+                pending_buy_signal = None
+
+            positions = get_open_positions(trade_client, active_account_id) or []
             current_time = time.time()
 
+            # 3. Step-up bidding and fill logging
+            if pending_buy_order:
+                elapsed = current_time - pending_buy_order["time"]
+                has_filled = any(pending_buy_order["ticker"] in pos.get("symbol", "") for pos in positions)
+                
+                if has_filled:
+                    print(f"🎉 [ENTRY FILLED]: {pending_buy_order['ticker']} order executed successfully.")
+                    
+                    # Log Option Execution to DB
+                    log_option_execution_to_db({
+                        "signal_time": datetime.now().isoformat(),
+                        "ticker": pending_buy_order["ticker"],
+                        "contract_symbol": pending_buy_order["contractSymbol"],
+                        "option_type": pending_buy_order["opt_type"],
+                        "strike": pending_buy_order["strike"],
+                        "expiration": pending_buy_order["expire_date"],
+                        "entry_price": pending_buy_order["limit_price"],
+                        "iv": pending_buy_order["iv"]
+                    })
+                    
+                    pending_buy_order = None
+                elif elapsed >= 10:
+                    print(f"⛔ [TIMEOUT]: Order {pending_buy_order['ticker']} unfilled after 10s. Cancelling...")
+                    try: trade_client.order_v3.cancel_order(active_account_id, pending_buy_order["client_order_id"])
+                    except: pass
+                    time.sleep(1) 
+                    
+                    current_limit = pending_buy_order["limit_price"]
+                    if current_limit < TARGET_PREMIUM_MAX:
+                        new_limit = min(current_limit + 0.05, TARGET_PREMIUM_MAX)
+                        print(f"🔄 [STEP-UP BUY]: Adjusting limit up to catch premium -> ${new_limit:.2f}")
+                        try:
+                            cid = execute_raw_buy(
+                                trade_client, active_account_id, 
+                                pending_buy_order["ticker"], pending_buy_order["strike"], 
+                                pending_buy_order["opt_type"], pending_buy_order["expire_date"], 
+                                new_limit
+                            )
+                            pending_buy_order["client_order_id"] = cid
+                            pending_buy_order["limit_price"] = new_limit
+                            pending_buy_order["time"] = time.time()
+                            pending_buy_order["retries"] += 1
+                            log_trade_to_db(pending_buy_order["ticker"], "BUY", 1, new_limit, f"Step-Up Retry #{pending_buy_order['retries']}", 0.0)
+                        except Exception as e:
+                            print(f"❌ Error placing step-up order: {e}")
+                            pending_buy_order = None
+                    else:
+                        print(f"🛑 [ABORT]: Max premium limit of ${TARGET_PREMIUM_MAX:.2f} reached. Trade cancelled.")
+                        pending_buy_order = None
+
+            # 4. Dynamic Trailing Engine
             for pos in positions:
                 sym = pos.get("symbol", "").upper()
                 if not any(allowed in sym for allowed in ALLOWED_TICKERS): continue
@@ -235,11 +322,31 @@ def run_0dte_watcher(api_client, trade_client, active_account_id):
                 pnl_pct = float(pos.get("unrealized_profit_loss_rate", 0)) * 100
 
                 if sym not in state:
-                    state[sym] = {"initial_qty": qty, "runner_active": False, "floor_locked": False, "pending_sell": False, "sell_time": 0, "client_order_id": None, "current_limit": 0.0}
-                    print(f"📈 [TRACKING {sym[:3]}]: {sym} | Qty: {qty} | Entry PnL: {pnl_pct:.2f}%")
+                    state[sym] = {
+                        "peak_pnl": pnl_pct, 
+                        "trail_active": False,
+                        "pending_sell": False, 
+                        "sell_time": 0, 
+                        "client_order_id": None, 
+                        "current_limit": 0.0
+                    }
+                    print(f"📈 [TRACKING {sym[:3]}]: {sym} | Entry PnL: {pnl_pct:.2f}%")
                     continue
 
                 trade = state[sym]
+                
+                # Update peak profit
+                if pnl_pct > trade["peak_pnl"]:
+                    trade["peak_pnl"] = pnl_pct
+                
+                # Activate trailing logic if profit hits the activation threshold (+25%)
+                if trade["peak_pnl"] >= ACTIVATION_PCT:
+                    trade["trail_active"] = True
+                    current_stop = max(trade["peak_pnl"] - TRAIL_PCT, HARD_STOP_PCT)
+                else:
+                    trade["trail_active"] = False
+                    current_stop = HARD_STOP_PCT
+
                 if trade["pending_sell"]:
                     minutes_pending = (current_time - trade["sell_time"]) / 60
                     timeout_limit = 1.0 if pnl_pct > 0.0 else 5.0
@@ -257,28 +364,26 @@ def run_0dte_watcher(api_client, trade_client, active_account_id):
                             log_trade_to_db(sym, "SELL", qty, limit_set, f"Step-Down Replace ({label})", pnl_pct)
                     continue
 
-                sell_reason, sell_qty = "", qty
-                if pnl_pct <= -35.0: sell_reason = f"Hard Stop Triggered at {pnl_pct:.2f}%"
-                elif trade["initial_qty"] == 2 and not trade["runner_active"] and pnl_pct >= 30.0: sell_reason, sell_qty, trade["runner_active"] = f"Scale-Out (+30.0%: {pnl_pct:.2f}%)", 1, True
-                elif trade["runner_active"]:
-                    if pnl_pct >= 50.0: sell_reason = f"Runner Hit +50% Target ({pnl_pct:.2f}%)"
-                    elif pnl_pct <= 0.0: sell_reason = "Runner Reached Breakeven (0.0%)."
-                elif trade["initial_qty"] == 1:
-                    if pnl_pct >= 30.0 and not trade["floor_locked"]: trade["floor_locked"] = True; print(f"🔒 [FLOOR LOCKED]: {sym} crossed +30.0%.")
-                    if pnl_pct >= 50.0: sell_reason, sell_qty = f"Hit +50% Target ({pnl_pct:.2f}%)", 1
-                    elif trade["floor_locked"] and pnl_pct <= 30.0: sell_reason, sell_qty = "Fell Back to +30% Floor.", 1
+                sell_reason = ""
+                
+                # Check for Stop Loss Trigger
+                if pnl_pct <= current_stop:
+                    if trade["trail_active"]:
+                        sell_reason = f"Trailing Stop Triggered at {pnl_pct:.2f}% (Peak was {trade['peak_pnl']:.2f}%)"
+                    else:
+                        sell_reason = f"Hard Stop Triggered at {pnl_pct:.2f}%"
 
                 if sell_reason:
-                    print(f"\n🚨 [0DTE EXIT SIGNAL]: {sym} | Qty: {sell_qty} | Reason: {sell_reason}")
-                    success, cid, limit_set = execute_sell(trade_client, active_account_id, sym, sell_qty, sell_reason, pos.get("legs", []))
+                    print(f"\n🚨 [0DTE EXIT SIGNAL]: {sym} | Qty: {qty} | Reason: {sell_reason}")
+                    success, cid, limit_set = execute_sell(trade_client, active_account_id, sym, qty, sell_reason, pos.get("legs", []))
                     if success:
                         trade["pending_sell"], trade["sell_time"], trade["client_order_id"], trade["current_limit"] = True, current_time, cid, limit_set
-                        log_trade_to_db(sym, "SELL", sell_qty, limit_set, sell_reason, pnl_pct)
+                        log_trade_to_db(sym, "SELL", qty, limit_set, sell_reason, pnl_pct)
 
         except Exception as e:
             print(f"⚠️ 0DTE Polling Exception: {e}")
-
-        time.sleep(5)
+        finally:
+            time.sleep(5)
 
 
 def test_webull_connection(trade_client, account_id):

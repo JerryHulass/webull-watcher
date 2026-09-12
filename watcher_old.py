@@ -11,14 +11,10 @@ from dotenv import load_dotenv
 import discord
 from discord.ext import tasks
 
-# --- WEBULL SDK IMPORTS ---
-import webull
-webull.__version__ = "1.0.0"
-from webull.core.client import ApiClient
-from webull.trade.trade_client import TradeClient
-
 # --- IMPORT YOUR EXISTING WEBULL FUNCTIONS ---
 from watcher import execute_sell, get_open_positions
+
+# --- SUPABASE INITIALIZATION ---
 from supabase import create_client, Client
 
 load_dotenv()
@@ -75,21 +71,21 @@ def log_option_execution_to_db(trade_data: dict):
     except Exception as e:
         print(f"⚠️ Supabase Option Logging Error: {e}")
 
-
 # --- CONFIGURATION ---
 ALLOWED_TICKERS = ["SPY", "QQQ", "IWM"]
 TARGET_PREMIUM_MIN = 0.80
 TARGET_PREMIUM_MAX = 1.10
+EXECUTION_DELAY_SECONDS = 60  
 
+# Dynamic Trailing Stop Logic
 HARD_STOP_PCT = -45.0   
 ACTIVATION_PCT = 25.0   
 TRAIL_PCT = 15.0        
 
 PROCESSED_SIGNAL_IDS = set()
 
-
-# --- YFINANCE DATA & WEBULL EXECUTION ENGINE ---
-def get_target_option_contract(ticker, opt_type):
+# --- BUY EXECUTION ENGINE ---
+def get_target_option_contract(api_client, ticker, opt_type):
     try:
         today_str = datetime.now().strftime("%Y-%m-%d")
         stock = yf.Ticker(ticker)
@@ -115,27 +111,16 @@ def get_target_option_contract(ticker, opt_type):
         
         print(f"📊 [MARKET DATA]: Found {ticker} {opt_type} at ${target_ask:.2f} (Strike: {target_strike}).")
 
-        # Fetch underlying price
-        fast_info = stock.fast_info
-        underlying_price = float(fast_info.get('lastPrice', 0.0))
-
         return {
             "strike_price": f"{target_strike:.1f}",
             "option_expire_date": today_str,
             "ask_price": float(target_ask),
-            "contractSymbol": str(best_contract.get('contractSymbol', 'UNKNOWN')),
-            "underlying_price": underlying_price,
             "iv": float(best_contract.get('impliedVolatility', 0.0)),
-            "delta": 0.0,
-            "gamma": 0.0,
-            "theta": 0.0,
-            "vega": 0.0
+            "contractSymbol": str(best_contract.get('contractSymbol', 'UNKNOWN'))
         }
-
     except Exception as e:
         print(f"❌ Option Chain Fetch Error: {e}")
         return None
-
 
 def execute_raw_buy(trade_client, account_id, ticker, strike, opt_type, expire_date, limit_price):
     client_order_id = uuid.uuid4().hex
@@ -153,10 +138,9 @@ def execute_raw_buy(trade_client, account_id, ticker, strike, opt_type, expire_d
     trade_client.order_v3.place_order(account_id, new_orders)
     return client_order_id
 
-
-def execute_buy_target_premium(trade_client, account_id, ticker, opt_type):
+def execute_buy_target_premium(api_client, trade_client, account_id, ticker, opt_type):
     print(f"\n⚡ [BUY INITIATED]: Hunting for 0DTE {ticker} {opt_type} at ${TARGET_PREMIUM_MIN} - ${TARGET_PREMIUM_MAX}...")
-    target_contract = get_target_option_contract(ticker, opt_type)
+    target_contract = get_target_option_contract(api_client, ticker, opt_type)
 
     if not target_contract:
         print("❌ [BUY CANCELLED]: Could not resolve contract in target premium range.")
@@ -179,13 +163,8 @@ def execute_buy_target_premium(trade_client, account_id, ticker, opt_type):
             "strike": strike,
             "expire_date": expire_date,
             "limit_price": float(entry_limit_price),
-            "contractSymbol": target_contract["contractSymbol"],
-            "underlying_price": target_contract["underlying_price"],
             "iv": target_contract["iv"],
-            "delta": target_contract["delta"],
-            "gamma": target_contract["gamma"],
-            "theta": target_contract["theta"],
-            "vega": target_contract["vega"],
+            "contractSymbol": target_contract["contractSymbol"],
             "time": time.time(),
             "retries": 0
         }
@@ -196,12 +175,15 @@ def execute_buy_target_premium(trade_client, account_id, ticker, opt_type):
 
 # --- DISCORD SELF-BOT ARCHITECTURE ---
 class WatcherClient(discord.Client):
-    def __init__(self, trade_client, account_id, *args, **kwargs):
+    def __init__(self, api_client, trade_client, account_id, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.api_client = api_client
         self.trade_client = trade_client
         self.account_id = account_id
         self.target_channel_id = int(os.getenv("DISCORD_CHANNEL_ID", 0))
         
+        # State variables previously held in the while loop
+        self.pending_buy_signal = None
         self.pending_buy_order = None
         self.state = {}
 
@@ -209,21 +191,12 @@ class WatcherClient(discord.Client):
         print(f"🚀 Discord API Connected: Logged in as {self.user.name}")
         print(f"📡 Listening exclusively to Channel ID: {self.target_channel_id}")
         self.trading_loop.start()
-        
-    async def trigger_immediate_buy(self, ticker, opt_type):
-        """Fires the buy order immediately in a background worker thread."""
-        self.pending_buy_order = await asyncio.to_thread(
-            execute_buy_target_premium, 
-            self.trade_client, 
-            self.account_id, 
-            ticker, 
-            opt_type
-        )
 
     async def on_message(self, message):
         if message.channel.id != self.target_channel_id:
             return
 
+        # Parse the live embed JSON
         embed_text = ""
         for embed in message.embeds:
             embed_text += f"{embed.title or ''} {embed.description or ''} "
@@ -236,6 +209,8 @@ class WatcherClient(discord.Client):
             direction = match.group(1)
             ticker = match.group(2)
             opt_type = "CALL" if direction == "LONG" else "PUT"
+            
+            # Use Discord's native message ID to absolutely prevent duplicates
             signal_id = str(message.id)
 
             if signal_id not in PROCESSED_SIGNAL_IDS:
@@ -243,16 +218,31 @@ class WatcherClient(discord.Client):
                 print(f"\n🔔 [FRESH LIVE SIGNAL DETECTED]: {ticker} {opt_type}")
                 
                 if not self.pending_buy_order:
-                    print(f"⚡ [INSTANT EXECUTION]: Submitting buy order immediately...")
+                    print(f"⏳ [SIGNAL QUEUED]: Waiting {EXECUTION_DELAY_SECONDS} seconds before executing...")
+                    
+                    # Run DB network calls in background to prevent API disconnects
                     asyncio.create_task(asyncio.to_thread(log_signal_to_db, ticker, opt_type, embed_text))
                     
-                    # Fire order immediately without waiting for the 5-second loop
-                    asyncio.create_task(self.trigger_immediate_buy(ticker, opt_type))
+                    self.pending_buy_signal = {
+                        "ticker": ticker,
+                        "opt_type": opt_type,
+                        "execute_at": time.time() + EXECUTION_DELAY_SECONDS
+                    }
 
     @tasks.loop(seconds=5)
     async def trading_loop(self):
         current_time = time.time()
 
+        # 1. Execute queued signals
+        if self.pending_buy_signal and current_time >= self.pending_buy_signal["execute_at"]:
+            print(f"\n⏰ [DELAY COMPLETE]: Executing queued {self.pending_buy_signal['ticker']} signal...")
+            self.pending_buy_order = await asyncio.to_thread(
+                execute_buy_target_premium, self.api_client, self.trade_client, 
+                self.account_id, self.pending_buy_signal["ticker"], self.pending_buy_signal["opt_type"]
+            )
+            self.pending_buy_signal = None
+
+        # 2. Get positions asynchronously to avoid blocking Discord heartbeat
         try:
             positions = await asyncio.to_thread(get_open_positions, self.trade_client, self.account_id)
             positions = positions or []
@@ -260,6 +250,7 @@ class WatcherClient(discord.Client):
             print(f"⚠️ Position Fetch Error: {e}")
             return
 
+        # 3. Step-up bidding and fill logging
         if self.pending_buy_order:
             elapsed = current_time - self.pending_buy_order["time"]
             has_filled = any(self.pending_buy_order["ticker"] in pos.get("symbol", "") for pos in positions)
@@ -275,12 +266,7 @@ class WatcherClient(discord.Client):
                     "strike": self.pending_buy_order["strike"],
                     "expiration": self.pending_buy_order["expire_date"],
                     "entry_price": self.pending_buy_order["limit_price"],
-                    "underlying_price": self.pending_buy_order["underlying_price"],
-                    "iv": self.pending_buy_order["iv"],
-                    "delta": self.pending_buy_order["delta"],
-                    "gamma": self.pending_buy_order["gamma"],
-                    "theta": self.pending_buy_order["theta"],
-                    "vega": self.pending_buy_order["vega"]
+                    "iv": self.pending_buy_order["iv"]
                 }
                 asyncio.create_task(asyncio.to_thread(log_option_execution_to_db, payload))
                 self.pending_buy_order = None
@@ -315,6 +301,7 @@ class WatcherClient(discord.Client):
                     print(f"🛑 [ABORT]: Max premium limit of ${TARGET_PREMIUM_MAX:.2f} reached. Trade cancelled.")
                     self.pending_buy_order = None
 
+        # 4. Dynamic Trailing Engine
         for pos in positions:
             sym = pos.get("symbol", "").upper()
             if not any(allowed in sym for allowed in ALLOWED_TICKERS): continue
@@ -335,7 +322,8 @@ class WatcherClient(discord.Client):
 
             trade = self.state[sym]
             
-            if pnl_pct > trade["peak_pnl"]: trade["peak_pnl"] = pnl_pct
+            if pnl_pct > trade["peak_pnl"]:
+                trade["peak_pnl"] = pnl_pct
             
             if trade["peak_pnl"] >= ACTIVATION_PCT:
                 trade["trail_active"] = True
@@ -347,6 +335,7 @@ class WatcherClient(discord.Client):
             if trade["pending_sell"]:
                 minutes_pending = (current_time - trade["sell_time"]) / 60
                 timeout_limit = 1.0 if pnl_pct > 0.0 else 5.0
+
                 if minutes_pending >= timeout_limit:
                     label = "1-Min (Profit)" if pnl_pct > 0.0 else "5-Min (Loss)"
                     print(f"⏳ {label} Timeout: {sym} unfilled. Stepping down limit price...")
@@ -361,9 +350,12 @@ class WatcherClient(discord.Client):
                 continue
 
             sell_reason = ""
+            
             if pnl_pct <= current_stop:
-                if trade["trail_active"]: sell_reason = f"Trailing Stop Triggered at {pnl_pct:.2f}% (Peak was {trade['peak_pnl']:.2f}%)"
-                else: sell_reason = f"Hard Stop Triggered at {pnl_pct:.2f}%"
+                if trade["trail_active"]:
+                    sell_reason = f"Trailing Stop Triggered at {pnl_pct:.2f}% (Peak was {trade['peak_pnl']:.2f}%)"
+                else:
+                    sell_reason = f"Hard Stop Triggered at {pnl_pct:.2f}%"
 
             if sell_reason:
                 print(f"\n🚨 [0DTE EXIT SIGNAL]: {sym} | Qty: {qty} | Reason: {sell_reason}")
@@ -376,7 +368,18 @@ class WatcherClient(discord.Client):
     async def before_trading_loop(self):
         await self.wait_until_ready()
 
+def test_webull_connection(trade_client, account_id):
+    print("🔌 Testing Webull Paper Trading Connection...")
+    try:
+        get_open_positions(trade_client, account_id)
+        print(f"✅ Webull Connection Verified Successfully! Account ID: {account_id}")
+        return True
+    except Exception as e:
+        print(f"❌ Webull Connection Failed: {e}")
+        return False
+
 if __name__ == "__main__":
+    print("Loading credentials from .env file...")
     app_key, app_secret, account_id = os.getenv("WEBULL_APP_KEY"), os.getenv("WEBULL_APP_SECRET"), os.getenv("WEBULL_ACCOUNT_ID")
     discord_token = os.getenv("DISCORD_USER_TOKEN")
 
@@ -384,9 +387,18 @@ if __name__ == "__main__":
         print("❌ CRITICAL: DISCORD_USER_TOKEN is missing from .env")
         exit()
 
-    api_client = ApiClient(app_key, app_secret, "us")
-    api_client.add_endpoint("us", "api.sandbox.webull.com")
-    trade_client = TradeClient(api_client)
+    try:
+        import webull
+        webull.__version__ = "1.0.0"
+        from webull.core.client import ApiClient
+        from webull.trade.trade_client import TradeClient
 
-    client = WatcherClient(trade_client, account_id)
-    client.run(discord_token)
+        api_client = ApiClient(app_key, app_secret, "us")
+        api_client.add_endpoint("us", "api.sandbox.webull.com")
+        trade_client = TradeClient(api_client)
+
+        if test_webull_connection(trade_client, account_id):
+            client = WatcherClient(api_client, trade_client, account_id)
+            client.run(discord_token)
+    except ImportError as e:
+        print(f"❌ Error: {e}")
